@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxoe84bmonmqc"]
+[gd_scene load_steps=3 format=3 uid="uid://dxoe84bmonmqc"]
 
-[ext_resource type="PackedScene" uid="uid://jlm4ay5ndld7" path="res://Scenes/enemies/basic_enemy/basic_enemy.tscn" id="1_kl553"]
+[ext_resource type="PackedScene" uid="uid://jlm4ay5ndld7" path="res://scenes/enemies/basic_enemy/basic_enemy.tscn" id="1_kl553"]
+[ext_resource type="PackedScene" uid="uid://dkchi0mhninvi" path="res://scenes/player/car/car.tscn" id="2_555rk"]
 
 [node name="SasaSandbox" type="Node2D"]
 
 [node name="BasicEnemy" parent="." instance=ExtResource("1_kl553")]
 position = Vector2(230, 144)
+
+[node name="Car" parent="." instance=ExtResource("2_555rk")]

@@ -1,15 +1,54 @@
 extends CharacterBody2D
 
+@export var damage: int = 10
 @export var base_speed: int = 20
 
-var target: Vector2 = Vector2.INF
+@onready var attack_timer: Timer = $AttackTimer
+@onready var target_update_timer: Timer = $TargetUpdateTimer
+
+var in_range: bool
+var can_attack: bool = true
+var stop_distance: float = 100
+var target_position: Vector2 = Vector2.INF
 
 func _ready() -> void:
-	target = Vector2(0, 0)
+	call_deferred("set_target")
 
 func _physics_process(delta: float) -> void:
-	if target == Vector2.INF:
+	if target_position == Vector2.INF:
 		return
-	var move_direction = (target - position).normalized()
+	if (target_position - position).length() < stop_distance:
+		return
+	
+	var move_direction = (target_position - position).normalized()
 	velocity = move_direction * base_speed * delta * 100
 	move_and_slide()
+
+func attack():
+	can_attack = false
+	attack_timer.start()
+	#GameManager.player.attacked(damage)
+
+
+############ Helper functions ############
+
+func _on_target_update_timer_timeout() -> void:
+	set_target()
+
+func _on_attack_range_body_exited(_body: Node2D) -> void:
+	in_range = false
+
+func _on_attack_range_body_entered(_body: Node2D) -> void:
+	in_range = true
+	if can_attack:
+		attack()
+
+func _on_attack_timer_timeout() -> void:
+	can_attack = true
+	if in_range:
+		attack()
+
+func set_target() -> void:
+	if not GameManager.player:
+		return
+	target_position = GameManager.player.position
