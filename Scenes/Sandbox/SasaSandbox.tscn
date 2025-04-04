@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxoe84bmonmqc"]
+
+[ext_resource type="PackedScene" uid="uid://jlm4ay5ndld7" path="res://Scenes/Enemies/BasicEnemy/BasicEnemy.tscn" id="1_0f7ks"]
+
+[node name="SasaSandbox" type="Node2D"]
+
+[node name="BasicEnemy" parent="." instance=ExtResource("1_0f7ks")]
+position = Vector2(230, 144)
