@@ -8,9 +8,11 @@
 [node name="EinarsSandbox" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.14902, 1, 0.258824, 1)
 material = SubResource("CanvasItemMaterial_8f8w6")
 position = Vector2(727, 411.5)
 scale = Vector2(12.3594, 7.42969)
 texture = ExtResource("1_afvkj")
 
 [node name="Car" parent="." instance=ExtResource("1_15bs5")]
+position = Vector2(718, 466)
