@@ -34,3 +34,6 @@ func _physics_process(delta: float) -> void:
 	#velocity += transform.y * (acceleration * 40 * delta)
 	#move_and_slide()
 	#smoothstep(speed,max_speed, )
+
+func attacked(damage:int):
+	print("Damage taken: ", damage)

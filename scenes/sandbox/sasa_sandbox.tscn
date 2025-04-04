@@ -9,3 +9,4 @@
 position = Vector2(230, 144)
 
 [node name="Car" parent="." instance=ExtResource("2_555rk")]
+position = Vector2(491, 203)
