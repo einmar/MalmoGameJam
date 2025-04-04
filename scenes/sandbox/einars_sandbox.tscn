@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs83vhbet0gog"]
+[gd_scene load_steps=6 format=3 uid="uid://cs83vhbet0gog"]
 
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_v7nae"]
-[ext_resource type="PackedScene" uid="uid://dkchi0mhninvi" path="res://scenes/player/car/car.tscn" id="2_csk1o"]
+[ext_resource type="PackedScene" uid="uid://dkchi0mhninvi" path="res://Scenes/Player/Car/car.tscn" id="2_csk1o"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8f8w6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3apa"]
+size = Vector2(128, 128)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c3apa"]
+bounce = 0.55
 
 [node name="EinarsSandbox" type="Node2D"]
 
@@ -16,3 +22,23 @@ texture = ExtResource("1_v7nae")
 
 [node name="Car" parent="." instance=ExtResource("2_csk1o")]
 position = Vector2(718, 466)
+motion_mode = 1
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(947, 238)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("1_v7nae")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_c3apa")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(433, 249)
+physics_material_override = SubResource("PhysicsMaterial_c3apa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_c3apa")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_v7nae")
