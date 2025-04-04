@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	#print(get_last_motion())
+	#print(get_last_motion()) stuped
 	#velocity = get_last_motion()
 	var steering_input: float 
 	var acceleration_input: float
