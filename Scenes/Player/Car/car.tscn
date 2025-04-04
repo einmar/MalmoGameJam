@@ -1,20 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkchi0mhninvi"]
 
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_fas2v"]
-[ext_resource type="Script" uid="uid://gfbn5pr2d5se" path="res://scenes/player/car/car.gd" id="1_qjbmi"]
+[ext_resource type="Script" uid="uid://gfbn5pr2d5se" path="res://Scenes/player/car/car.gd" id="1_qjbmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjbmi"]
 size = Vector2(62, 124)
 
-<<<<<<< HEAD
 [node name="Car" type="RigidBody2D"]
 gravity_scale = 0.0
 angular_damp = 3.285
-=======
-[node name="Car" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 7
->>>>>>> 37f3c67e5776ddde39d0f94a4a3133fcb3a719a5
 script = ExtResource("1_qjbmi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

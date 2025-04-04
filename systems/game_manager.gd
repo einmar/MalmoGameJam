@@ -7,7 +7,7 @@ var player: RigidBody2D
 func add(key: String, value):
 	references[key] = value
 
-func remove(key: String):
+func remove(key: String):s
 	if references.has(key):
 		references.erase(key)
 		return true
