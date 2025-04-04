@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cs83vhbet0gog"]
 
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_q66r3"]
-[ext_resource type="PackedScene" uid="uid://dkchi0mhninvi" path="res://Scenes/player/car/car.tscn" id="2_ec88w"]
+[ext_resource type="PackedScene" uid="uid://dkchi0mhninvi" path="res://scenes/player/car/car.tscn" id="2_ec88w"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8f8w6"]
 
