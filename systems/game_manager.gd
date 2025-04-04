@@ -1,7 +1,7 @@
 extends Node
 
 var references = {}
-var player: CharacterBody2D
+var player: RigidBody2D
 
 # Global references
 func add(key: String, value):

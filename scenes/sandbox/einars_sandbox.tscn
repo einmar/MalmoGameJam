@@ -22,7 +22,6 @@ texture = ExtResource("1_v7nae")
 
 [node name="Car" parent="." instance=ExtResource("2_csk1o")]
 position = Vector2(718, 466)
-motion_mode = 1
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2(947, 238)
