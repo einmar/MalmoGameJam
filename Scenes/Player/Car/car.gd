@@ -7,6 +7,9 @@ extends CharacterBody2D
 var steering: float = 0
 var speed: float = 0
 
+func _ready() -> void:
+	GameManager.player = self
+
 func _physics_process(delta: float) -> void:
 	var steering_input = Input.get_joy_axis(player,JOY_AXIS_LEFT_X)
 	var acceleration = Input.get_joy_axis(player,JOY_AXIS_LEFT_Y)
