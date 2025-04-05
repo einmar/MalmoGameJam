@@ -1,9 +1,10 @@
-extends RigidBody2D
+extends CharacterBody2D
 # Loosely based on https://kidscancode.org/godot_recipes/3.x/2d/car_steering/
+class_name PlayerCar
 
 
 @export var player: int = 0
-@export var steering_force: float = 10000
+@export var steering_angle: int = 25
 @export var acceleration: float = 4000
 @export var max_speed: float = 400
 
@@ -16,9 +17,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
-	#print(get_last_motion()) stuped
-	#velocity = get_last_motion()
+
 	var steering_input: float 
 	var acceleration_input: float
 	if Input.is_joy_known(0):
@@ -27,14 +26,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		steering_input = Input.get_axis("player1_left","player1_right")
 		acceleration_input = Input.get_axis("player1_down","player1_up")
-	#steering = steering_input * deg_to_rad(steering)
-	#rotate(steering_input * steering_force * delta)
-	apply_torque(steering_input * steering_force * delta)
-	#speed += acceleration
-	apply_central_force(transform.x * (acceleration_input * acceleration * delta))
-	#velocity += transform.y * (acceleration * 40 * delta)
-	#move_and_slide()
-	#smoothstep(speed,max_speed, )
+
+	var steering = steering_input * deg_to_rad(steering_angle) * delta
+	rotate(steering)
+	velocity = transform.x * (acceleration_input * acceleration * delta)
+	move_and_slide()
 
 func attacked(damage:int):
 	print("Damage taken: ", damage)
