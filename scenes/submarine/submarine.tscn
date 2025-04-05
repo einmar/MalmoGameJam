@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dvlqtssi4uvto"]
+[gd_scene load_steps=21 format=4 uid="uid://dvlqtssi4uvto"]
 
 [ext_resource type="Script" uid="uid://3i1ueqkxi0co" path="res://scenes/submarine/submarine.gd" id="1_77ovh"]
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_oatge"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cyu1pos2ranyx" path="res://scenes/health/health.tscn" id="4_tnxgy"]
 [ext_resource type="Texture2D" uid="uid://c5rl3md7ylqan" path="res://art/spritesheet_vechicles/submarine_frame.png" id="5_efdjn"]
 [ext_resource type="Script" uid="uid://ppjd3ih5jfvu" path="res://scenes/submarine/water_level.gd" id="7_qooq6"]
+[ext_resource type="Texture2D" uid="uid://bihy8tmv4t5r5" path="res://art/spritesheet_vechicles/light.png" id="9_roe7p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tnxgy"]
 radius = 48.0
@@ -7759,11 +7760,6 @@ script = ExtResource("1_77ovh")
 [node name="Submarine" type="Sprite2D" parent="."]
 texture = ExtResource("2_m6bwt")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(1.1, 0.5)
-color = Color(0.286821, 0.257459, 0.656062, 1)
-texture = ExtResource("3_myfyj")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_tnxgy")
@@ -7806,6 +7802,22 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterMask/WaterLevel/WaterArea"]
 position = Vector2(45, -5.96046e-07)
 shape = SubResource("RectangleShape2D_qooq6")
+
+[node name="lights" type="Node2D" parent="."]
+
+[node name="AmbientPointLight2D" type="PointLight2D" parent="lights"]
+scale = Vector2(1.1, 0.5)
+color = Color(0.286821, 0.257459, 0.656062, 1)
+energy = 0.5
+texture = ExtResource("3_myfyj")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lights"]
+position = Vector2(8, 1)
+scale = Vector2(1, 0.65)
+color = Color(1, 0.670336, 0.36844, 1)
+energy = 5.0
+texture = ExtResource("9_roe7p")
+texture_scale = 0.1
 
 [connection signal="water_level_changed" from="." to="WaterMask/WaterLevel" method="_on_submarine_water_level_changed"]
 [connection signal="health_changed" from="Health" to="." method="_on_health_health_changed"]
