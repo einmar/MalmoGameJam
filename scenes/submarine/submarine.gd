@@ -45,6 +45,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	direction = Vector2.ZERO
 	
+	# For debug
+	if Input.is_action_just_pressed("ui_home"):
+		$"Health".take_damage(10)
+	
 func set_dir(val, is_x):
 	if is_x:
 		direction.x = val
@@ -71,6 +75,7 @@ func set_water_level(level):
 func _on_health_health_changed(health: int) -> void:
 	print("Took damage, current health:", health)
 	set_water_level(1.0 - float(health)/100.0)
+
 
 func _on_health_health_depleted() -> void:
 	print("Submarine sunk, GAME OVER")

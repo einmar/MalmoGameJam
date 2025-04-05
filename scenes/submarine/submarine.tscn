@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://dvlqtssi4uvto"]
+[gd_scene load_steps=18 format=4 uid="uid://dvlqtssi4uvto"]
 
 [ext_resource type="Script" uid="uid://3i1ueqkxi0co" path="res://scenes/submarine/submarine.gd" id="1_77ovh"]
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_oatge"]
-[ext_resource type="Texture2D" uid="uid://8bj2qfuvbbvn" path="res://art/spritesheet_vechicles/submarine_background.png" id="2_m6bwt"]
+[ext_resource type="Texture2D" uid="uid://dl1m6fanooxmf" path="res://art/spritesheet_vechicles/submarine_background.png" id="2_m6bwt"]
 [ext_resource type="Texture2D" uid="uid://4e3wn4lmntih" path="res://art/spritesheet_vechicles/submarine.png" id="3_77ovh"]
 [ext_resource type="PackedScene" uid="uid://cyu1pos2ranyx" path="res://scenes/health/health.tscn" id="4_tnxgy"]
-[ext_resource type="Texture2D" uid="uid://dnwoo6wrgsakt" path="res://art/spritesheet_vechicles/submarine_frame.png" id="5_efdjn"]
+[ext_resource type="Texture2D" uid="uid://c5rl3md7ylqan" path="res://art/spritesheet_vechicles/submarine_frame.png" id="5_efdjn"]
 [ext_resource type="Script" uid="uid://ppjd3ih5jfvu" path="res://scenes/submarine/water_level.gd" id="7_qooq6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tnxgy"]
@@ -7715,8 +7715,37 @@ colors = PackedColorArray(0, 0, 0.458824, 0.447059, 0, 1, 1, 0.352941)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qooq6"]
 gradient = SubResource("Gradient_efdjn")
-width = 104
-height = 224
+width = 120
+height = 270
+
+[sub_resource type="Gradient" id="Gradient_qooq6"]
+offsets = PackedFloat32Array(0.525, 0.69)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_myfyj"]
+gradient = SubResource("Gradient_qooq6")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.495, 0.495)
+
+[sub_resource type="Curve" id="Curve_roe7p"]
+_data = [Vector2(0, 0), 0.0, 2.42315, 0, 0, Vector2(0.485955, 0.758389), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.80479, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_641nr"]
+curve = SubResource("Curve_roe7p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8xtpu"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 100, 1)
+gravity = Vector3(30, 0, 0)
+scale_min = 0.3
+alpha_curve = SubResource("CurveTexture_641nr")
+turbulence_enabled = true
+turbulence_noise_scale = 2.0
+turbulence_noise_speed_random = 0.4
 
 [node name="Submarine" type="CharacterBody2D"]
 collision_layer = 8
@@ -7746,11 +7775,20 @@ clip_children = 1
 texture = ExtResource("3_77ovh")
 
 [node name="WaterLevel" type="Sprite2D" parent="WaterMask"]
-position = Vector2(0, 49)
+position = Vector2(0, 161)
 rotation = 4.71239
 texture = SubResource("GradientTexture2D_qooq6")
-offset = Vector2(51.715, 0)
+offset = Vector2(45.145, 0)
 script = ExtResource("7_qooq6")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="WaterMask/WaterLevel"]
+position = Vector2(6, -7.15493e-08)
+amount = 20
+texture = SubResource("GradientTexture2D_myfyj")
+lifetime = 10.0
+preprocess = 10.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_8xtpu")
 
 [connection signal="water_level_changed" from="." to="WaterMask/WaterLevel" method="_on_submarine_water_level_changed"]
 [connection signal="health_changed" from="Health" to="." method="_on_health_health_changed"]
