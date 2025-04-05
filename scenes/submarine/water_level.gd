@@ -1,14 +1,18 @@
 extends Sprite2D
 
-
+var position_empty:float = 160.0
+var position_full_delta:float = -110.0
+var current_level: float = 0.0
+var sprite_rotation: float
+# Called when the node enters
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    scale = Vector2(0,1)
+	scale = Vector2(0,1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-    pass
+	pass
 
 
 func _on_submarine_water_level_changed(water_level: float) -> void:
