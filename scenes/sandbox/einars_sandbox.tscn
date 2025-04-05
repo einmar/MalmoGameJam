@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="1_1hi0b"]
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_q66r3"]
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="2_8p02w"]
-[ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="3_1hi0b"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_1hi0b"]
 
 [node name="EinarsSandbox" type="Node2D"]
 

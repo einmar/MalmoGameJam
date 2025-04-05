@@ -49,6 +49,6 @@ func _on_attack_timer_timeout() -> void:
 		attack()
 
 func set_target() -> void:
-	if not GameManager.player:
+	if not GameManager.submarine:
 		return
-	target_position = GameManager.player.position
+	target_position = GameManager.submarine.position
