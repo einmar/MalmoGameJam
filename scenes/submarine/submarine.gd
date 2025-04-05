@@ -2,8 +2,11 @@ extends CharacterBody2D
 
 class_name Submarine
 
+signal water_level_changed(water_level: float)
+
 @export var max_vertical_speed: float = 100.0
 @export var max_horizontal_speed: float = 100.0
+
 
 var buoyancy: float = 980.0
 var speed: float = 70.0
@@ -13,6 +16,7 @@ var timer: float = 0.0
 var turbulence: float = 1.0 
 var tilt_damping: float = 10.0
 var direction: Vector2 = Vector2.ZERO
+var water_level: float = 0
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -23,7 +27,7 @@ func _ready() -> void:
 	for child in get_children():
 		if child is BaseStation:
 			stations.append(child)
-			
+
 
 func _physics_process(delta: float) -> void:
 	timer += delta
@@ -59,12 +63,14 @@ func get_station(pos: Vector2, radius: float) -> BaseStation:
 			
 	return closest_station
 
-func attacked(damage:int):
-	print("Ouch for: ", damage)
-
+func set_water_level(level):
+	water_level = level
+	print(water_level)
+	water_level_changed.emit(water_level)
 
 func _on_health_health_changed(health: int) -> void:
-	print("Submarine took damage, current health:", health)
+	print("Took damage, current health:", health)
+	set_water_level(1.0 - float(health)/100.0)
 
 func _on_health_health_depleted() -> void:
 	print("Submarine sunk, GAME OVER")
