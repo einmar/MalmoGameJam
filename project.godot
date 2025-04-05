@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MalmoGameJam"
-run/main_scene="uid://dxoe84bmonmqc"
+run/main_scene="uid://bu5s50qgjdjag"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

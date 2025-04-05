@@ -7817,15 +7817,15 @@ collision_mask = 2
 position = Vector2(45, -5.96046e-07)
 shape = SubResource("RectangleShape2D_qooq6")
 
-[node name="lights" type="Node2D" parent="."]
+[node name="ambient_lights" type="Node2D" parent="."]
 
-[node name="AmbientPointLight2D" type="PointLight2D" parent="lights"]
-scale = Vector2(1.1, 0.5)
+[node name="AmbientPointLight2D" type="PointLight2D" parent="ambient_lights"]
+scale = Vector2(0.95, 0.4)
 color = Color(0.286821, 0.257459, 0.656062, 1)
-energy = 0.5
+energy = 0.7
 texture = ExtResource("3_myfyj")
 
-[node name="Sprite2D" type="Sprite2D" parent="lights"]
+[node name="Sprite2D" type="Sprite2D" parent="ambient_lights"]
 modulate = Color(0.676361, 0.434089, 0.0217305, 1)
 self_modulate = Color(3, 3, 3, 0.608)
 material = SubResource("CanvasItemMaterial_roe7p")
@@ -7833,7 +7833,7 @@ position = Vector2(-26, 5.96046e-08)
 scale = Vector2(0.09, 0.08)
 texture = ExtResource("9_roe7p")
 
-[node name="Sprite2D2" type="Sprite2D" parent="lights"]
+[node name="Sprite2D2" type="Sprite2D" parent="ambient_lights"]
 modulate = Color(0.676361, 0.434089, 0.0217305, 1)
 self_modulate = Color(3, 3, 3, 0.608)
 material = SubResource("CanvasItemMaterial_roe7p")
@@ -7841,7 +7841,7 @@ position = Vector2(-73, 5.96046e-08)
 scale = Vector2(0.09, 0.08)
 texture = ExtResource("9_roe7p")
 
-[node name="Sprite2D3" type="Sprite2D" parent="lights"]
+[node name="Sprite2D3" type="Sprite2D" parent="ambient_lights"]
 modulate = Color(0.676361, 0.434089, 0.0217305, 1)
 self_modulate = Color(3, 3, 3, 0.608)
 material = SubResource("CanvasItemMaterial_roe7p")
@@ -7849,7 +7849,7 @@ position = Vector2(18, 5.96046e-08)
 scale = Vector2(0.09, 0.08)
 texture = ExtResource("9_roe7p")
 
-[node name="Sprite2D4" type="Sprite2D" parent="lights"]
+[node name="Sprite2D4" type="Sprite2D" parent="ambient_lights"]
 modulate = Color(0.676361, 0.434089, 0.0217305, 1)
 self_modulate = Color(3, 3, 3, 0.608)
 material = SubResource("CanvasItemMaterial_roe7p")
@@ -7857,7 +7857,7 @@ position = Vector2(78, 5.96046e-08)
 scale = Vector2(0.09, 0.08)
 texture = ExtResource("9_roe7p")
 
-[node name="Sprite2D5" type="Sprite2D" parent="lights"]
+[node name="Sprite2D5" type="Sprite2D" parent="ambient_lights"]
 modulate = Color(0.676361, 0.434089, 0.0217305, 1)
 self_modulate = Color(3, 3, 3, 0.608)
 material = SubResource("CanvasItemMaterial_roe7p")
@@ -7865,7 +7865,7 @@ position = Vector2(68, 32)
 scale = Vector2(0.09, 0.08)
 texture = ExtResource("9_roe7p")
 
-[node name="Sprite2D6" type="Sprite2D" parent="lights"]
+[node name="Sprite2D6" type="Sprite2D" parent="ambient_lights"]
 modulate = Color(0.676361, 0.434089, 0.0217305, 1)
 self_modulate = Color(3, 3, 3, 0.608)
 material = SubResource("CanvasItemMaterial_roe7p")
@@ -7873,7 +7873,7 @@ position = Vector2(18, 32)
 scale = Vector2(0.09, 0.08)
 texture = ExtResource("9_roe7p")
 
-[node name="Sprite2D7" type="Sprite2D" parent="lights"]
+[node name="Sprite2D7" type="Sprite2D" parent="ambient_lights"]
 modulate = Color(0.676361, 0.434089, 0.0217305, 1)
 self_modulate = Color(3, 3, 3, 0.608)
 material = SubResource("CanvasItemMaterial_roe7p")
@@ -7881,7 +7881,7 @@ position = Vector2(-31, 32)
 scale = Vector2(0.09, 0.08)
 texture = ExtResource("9_roe7p")
 
-[node name="Sprite2D8" type="Sprite2D" parent="lights"]
+[node name="Sprite2D8" type="Sprite2D" parent="ambient_lights"]
 modulate = Color(0.676361, 0.434089, 0.0217305, 1)
 self_modulate = Color(3, 3, 3, 0.608)
 material = SubResource("CanvasItemMaterial_roe7p")
@@ -7889,7 +7889,7 @@ position = Vector2(-76, 32)
 scale = Vector2(0.09, 0.08)
 texture = ExtResource("9_roe7p")
 
-[node name="Sprite2D9" type="Sprite2D" parent="lights"]
+[node name="Sprite2D9" type="Sprite2D" parent="ambient_lights"]
 modulate = Color(0.676361, 0.434089, 0.0217305, 1)
 self_modulate = Color(3, 3, 3, 0.608)
 material = SubResource("CanvasItemMaterial_roe7p")
@@ -7897,7 +7897,7 @@ position = Vector2(-60, -32)
 scale = Vector2(0.09, 0.08)
 texture = ExtResource("9_roe7p")
 
-[node name="Sprite2D10" type="Sprite2D" parent="lights"]
+[node name="Sprite2D10" type="Sprite2D" parent="ambient_lights"]
 modulate = Color(0.676361, 0.434089, 0.0217305, 1)
 self_modulate = Color(3, 3, 3, 0.608)
 material = SubResource("CanvasItemMaterial_roe7p")
@@ -7905,7 +7905,7 @@ position = Vector2(-11, -32)
 scale = Vector2(0.09, 0.08)
 texture = ExtResource("9_roe7p")
 
-[node name="Sprite2D11" type="Sprite2D" parent="lights"]
+[node name="Sprite2D11" type="Sprite2D" parent="ambient_lights"]
 modulate = Color(0.676361, 0.434089, 0.0217305, 1)
 self_modulate = Color(3, 3, 3, 0.608)
 material = SubResource("CanvasItemMaterial_roe7p")

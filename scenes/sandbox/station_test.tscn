@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://dajmbm00s3t75" path="res://scenes/stations/vertical_station.gd" id="4_61oe3"]
 [ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="4_m0a8x"]
 [ext_resource type="Script" uid="uid://bnmb4aswl41qd" path="res://scenes/stations/gun_station.gd" id="6_1rmrp"]
-[ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://scenes/gun/gun.gd" id="7_eda08"]
-[ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://scenes/gun/bullet.tscn" id="8_eda08"]
+[ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://scenes/turrets/gun.gd" id="7_eda08"]
+[ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://scenes/turrets/bullet.tscn" id="8_eda08"]
 
 [sub_resource type="Gradient" id="Gradient_eda08"]
 
@@ -16,20 +16,20 @@ gradient = SubResource("Gradient_eda08")
 width = 800
 height = 800
 
-[sub_resource type="Gradient" id="Gradient_b65lc"]
+[sub_resource type="Gradient" id="Gradient_s0xsx"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m0a8x"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_b65lc")
+gradient = SubResource("Gradient_s0xsx")
 width = 8
 height = 16
 fill_from = Vector2(0.358974, 0.447293)
 fill_to = Vector2(0, 0.980057)
 
-[sub_resource type="Gradient" id="Gradient_s0xsx"]
+[sub_resource type="Gradient" id="Gradient_jsjir"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_eda08"]
-gradient = SubResource("Gradient_s0xsx")
+gradient = SubResource("Gradient_jsjir")
 width = 8
 height = 16
 

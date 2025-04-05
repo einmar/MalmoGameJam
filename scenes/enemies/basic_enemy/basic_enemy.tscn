@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jlm4ay5ndld7"]
+[gd_scene load_steps=12 format=3 uid="uid://jlm4ay5ndld7"]
 
 [ext_resource type="Script" uid="uid://cvadl04swgs52" path="res://scenes/enemies/basic_enemy/basic_enemy.gd" id="1_hsin2"]
 [ext_resource type="Texture2D" uid="uid://cye2t1lrge7s6" path="res://art/spritesheets_characters/2d_lights_and_shadows_neutral_point_light.webp" id="2_mkcty"]
@@ -30,6 +30,9 @@ animations = [{
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_oyl6e"]
 polygon = PackedVector2Array(-1, -4, -2, -7, -3, -7, -5.2, -5, -8.5, -5, -11.5, -1, -13, 1, -13, 3, -12, 4, -13, 8, -9, 8, -6, 7, 2.2, 7, 7, 4.6, 8, 6, 10, 6, 10, -3.6, 7, -2, 4, -2)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mkcty"]
+blend_mode = 1
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkcty"]
 size = Vector2(27, 18)
 
@@ -46,16 +49,17 @@ sprite_frames = SubResource("SpriteFrames_ym85l")
 animation = &"swimming"
 frame_progress = 0.605667
 
-[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
-position = Vector2(-7, 0)
-color = Color(1, 0, 0, 1)
-energy = 0.5
-texture = ExtResource("2_mkcty")
-texture_scale = 0.05
-
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="AnimatedSprite2D"]
 position = Vector2(1, -1)
 occluder = SubResource("OccluderPolygon2D_oyl6e")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
+modulate = Color(0.771342, 0, 0.105289, 1)
+self_modulate = Color(4, 3, 3, 0.608)
+material = SubResource("CanvasItemMaterial_mkcty")
+position = Vector2(-7, -1)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_mkcty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -1)

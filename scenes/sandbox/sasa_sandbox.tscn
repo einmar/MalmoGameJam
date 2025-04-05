@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="2_8pjya"]
 [ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="4_c1mo7"]
 [ext_resource type="Script" uid="uid://beudspcqn6na" path="res://scenes/stations/light_station.gd" id="5_0ledb"]
-[ext_resource type="Script" uid="uid://co01quiavx3pe" path="res://scenes/gun/light.gd" id="6_xxmhc"]
+[ext_resource type="Script" uid="uid://co01quiavx3pe" path="res://scenes/turrets/light.gd" id="6_xxmhc"]
 [ext_resource type="Texture2D" uid="uid://bihy8tmv4t5r5" path="res://art/spritesheet_vechicles/light.png" id="7_xxmhc"]
 [ext_resource type="Script" uid="uid://bnmb4aswl41qd" path="res://scenes/stations/gun_station.gd" id="8_3jbro"]
-[ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://scenes/gun/gun.gd" id="9_5068x"]
-[ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://scenes/gun/bullet.tscn" id="10_0bg4w"]
+[ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://scenes/turrets/gun.gd" id="9_5068x"]
+[ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://scenes/turrets/bullet.tscn" id="10_0bg4w"]
 
 [sub_resource type="Gradient" id="Gradient_m0a8x"]
 offsets = PackedFloat32Array(0, 0.00649351, 0.454545)
