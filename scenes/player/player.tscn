@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://byrob4f6c5aw" path="res://scenes/player/player.gd" id="1_dovo2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
-radius = 8.0
-height = 26.0
+radius = 3.0
+height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
 atlas = ExtResource("1_8afob")
@@ -21,7 +21,8 @@ script = ExtResource("1_dovo2")
 shape = SubResource("CapsuleShape2D_dovo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(0.428571, 0.366667)
 texture = SubResource("AtlasTexture_gmlin")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
