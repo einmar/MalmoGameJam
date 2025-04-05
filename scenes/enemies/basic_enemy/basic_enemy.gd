@@ -15,50 +15,50 @@ var target_position: Vector2 = Vector2.INF
 var health: Health
 
 func _ready() -> void:
-    character_sprite.play("swimming")
-    call_deferred("set_target")
-    health = $Health
-    print(health)
+	character_sprite.play("swimming")
+	call_deferred("set_target")
+	health = $Health
+	print(health)
 
 func _physics_process(delta: float) -> void:
-    if target_position == Vector2.INF:
-        return
-    if (target_position - position).length() < stop_distance:
-        return
-    
-    var move_direction = (target_position - position).normalized()
-    velocity = move_direction * base_speed * delta * 100
-    move_and_slide()
+	if target_position == Vector2.INF:
+		return
+	if (target_position - position).length() < stop_distance:
+		return
+	
+	var move_direction = (target_position - position).normalized()
+	velocity = move_direction * base_speed * delta * 100
+	move_and_slide()
 
 func attack():
-    can_attack = false
-    attack_timer.start()
-    var player_health: Health = GameManager.submarine.find_child("Health")
-    player_health.take_damage(damage)
+	can_attack = false
+	attack_timer.start()
+	var player_health: Health = GameManager.submarine.find_child("Health")
+	player_health.take_damage(damage)
 
 ############ Helper functions ############
 
 func _on_target_update_timer_timeout() -> void:
-    set_target()
+	set_target()
 
 func _on_attack_range_body_exited(_body: Node2D) -> void:
-    in_range = false
+	in_range = false
 
 func _on_attack_range_body_entered(_body: Node2D) -> void:
-    in_range = true
-    if can_attack:
-        attack()
+	in_range = true
+	if can_attack:
+		attack()
 
 func _on_attack_timer_timeout() -> void:
-    can_attack = true
-    if in_range:
-        attack()
+	can_attack = true
+	if in_range:
+		attack()
 
 func set_target() -> void:
-    if not GameManager.submarine:
-        return
-    target_position = GameManager.submarine.position
-    character_sprite.scale.x = int(target_position.x < position.x)*2-1
+	if not GameManager.submarine:
+		return
+	target_position = GameManager.submarine.position
+	character_sprite.scale.x = int(target_position.x < position.x)*2-1
 
 func _on_health_health_depleted() -> void:
-    queue_free()
+	queue_free()
