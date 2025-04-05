@@ -7,7 +7,11 @@ extends BaseStation
 var _light_rotation_speed: float = 180.0 # degrees per second
 
 func _ready() -> void:
-	pass # Replace with function body.
+	call_deferred("set_lights_strength")
+
+func set_lights_strength(light_energy:float = light_energy_off):
+	for light in _lights:
+		light.point_light_2d.energy = light_energy
 
 func control_station(delta) -> void:
 	var axis = Input.get_axis(_player.input_key("left"), _player.input_key("right"));
@@ -24,9 +28,7 @@ func control_station(delta) -> void:
 	super(delta)
 
 func on_enter() -> void:
-	for light in _lights:
-		light.point_light_2d.energy = light_energy_on
+	set_lights_strength(light_energy_on)
 
 func on_leave() -> void:
-	for light in _lights:
-		light.point_light_2d.energy = light_energy_off
+	set_lights_strength(light_energy_off)

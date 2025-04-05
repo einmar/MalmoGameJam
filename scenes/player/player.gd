@@ -84,7 +84,7 @@ func input_key(key) -> String:
 	return "player%s_%s" % [player_index, key]
 	
 func check_for_stations() -> BaseStation:
-	var sub = find_parent("Submarine")
+	var sub = GameManager.submarine
 	return sub.get_station(position, 10.0)
 
 func leave_station() -> void:
