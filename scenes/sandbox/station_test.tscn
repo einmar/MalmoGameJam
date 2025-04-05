@@ -26,10 +26,10 @@ height = 16
 fill_from = Vector2(0.358974, 0.447293)
 fill_to = Vector2(0, 0.980057)
 
-[sub_resource type="Gradient" id="Gradient_1rmrp"]
+[sub_resource type="Gradient" id="Gradient_s0xsx"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_eda08"]
-gradient = SubResource("Gradient_1rmrp")
+gradient = SubResource("Gradient_s0xsx")
 width = 8
 height = 16
 
