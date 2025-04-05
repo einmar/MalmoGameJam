@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://jlm4ay5ndld7"]
 
-[ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_6tdk0"]
 [ext_resource type="Script" uid="uid://cvadl04swgs52" path="res://scenes/enemies/basic_enemy/basic_enemy.gd" id="1_hsin2"]
+[ext_resource type="Texture2D" uid="uid://cb4dbx6ti3m5o" path="res://art/spritesheets_characters/spritesheet_fishes.png" id="2_oyl6e"]
 [ext_resource type="PackedScene" uid="uid://cyu1pos2ranyx" path="res://scenes/health/health.tscn" id="3_oyl6e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mone4"]
-radius = 40.0
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oyl6e"]
-radius = 100.0
+radius = 25.0
 
 [node name="basic_enemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -16,7 +16,7 @@ collision_mask = 2
 script = ExtResource("1_hsin2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_6tdk0")
+texture = ExtResource("2_oyl6e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_mone4")
