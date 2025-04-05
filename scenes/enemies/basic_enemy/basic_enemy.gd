@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var damage: int = 10
-@export var base_speed: int = 20
+@export var base_speed: int = 100
 
 @onready var attack_timer: Timer = $AttackTimer
 @onready var target_update_timer: Timer = $TargetUpdateTimer
@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 func attack():
 	can_attack = false
 	attack_timer.start()
-	GameManager.player.attacked(damage)
+	GameManager.submarine.attacked(damage)
 
 
 ############ Helper functions ############

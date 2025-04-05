@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 class_name Submarine
 
-@export var max_vertical_speed: float = 300.0
+@export var max_vertical_speed: float = 100.0
+@export var max_horizontal_speed: float = 100.0
+
 var buoyancy: float = 980.0
 var speed: float = 70.0
 var player_index: int = 1
@@ -33,7 +35,9 @@ func _physics_process(delta: float) -> void:
 	velocity.x = clamp(velocity.x, -max_vertical_speed, max_vertical_speed)
 	rotation = deg_to_rad(velocity.x / tilt_damping) + sin(timer * turbulence)/tilt_damping
 
-
+	velocity.y =  clamp(velocity.y, -max_vertical_speed, max_vertical_speed)
+	velocity.x =  clamp(velocity.x, -max_horizontal_speed, max_horizontal_speed)
+	
 	move_and_slide()
 	direction = Vector2.ZERO
 	
@@ -55,4 +59,5 @@ func get_station(pos: Vector2, radius: float) -> BaseStation:
 			
 	return closest_station
 
-	
+func attacked(damage:int):
+	print("Ouch for: ", damage)
