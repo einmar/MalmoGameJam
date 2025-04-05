@@ -13,6 +13,7 @@ region = Rect2(57, 2, 14, 30)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 16
 floor_stop_on_slope = false
 script = ExtResource("1_dovo2")
 

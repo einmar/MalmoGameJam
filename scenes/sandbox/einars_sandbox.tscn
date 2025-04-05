@@ -7,13 +7,13 @@
 
 [node name="f" type="Sprite2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("3_1hi0b")]
-position = Vector2(613, 295)
+[node name="Submarine" parent="." instance=ExtResource("2_8p02w")]
+position = Vector2(614, 147)
+collision_mask = 4
 
-[node name="Player2" parent="." instance=ExtResource("3_1hi0b")]
-position = Vector2(715, 344)
+[node name="Player2" parent="Submarine" instance=ExtResource("3_1hi0b")]
+position = Vector2(24, -53)
 player_index = 2
 
-[node name="Submarine" parent="." instance=ExtResource("2_8p02w")]
-position = Vector2(646, 345)
-collision_mask = 4
+[node name="Player" parent="Submarine" instance=ExtResource("3_1hi0b")]
+position = Vector2(-82, 7)
