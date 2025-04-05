@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @onready var attack_timer: Timer = $AttackTimer
 @onready var target_update_timer: Timer = $TargetUpdateTimer
-@onready var character_sprite: Sprite2D = $Sprite2D
+@onready var character_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var in_range: bool
 var can_attack: bool = true
@@ -14,6 +14,7 @@ var target_position: Vector2 = Vector2.INF
 
 
 func _ready() -> void:
+	character_sprite.play("swimming")
 	call_deferred("set_target")
 
 func _physics_process(delta: float) -> void:
@@ -54,7 +55,7 @@ func set_target() -> void:
 	if not GameManager.submarine:
 		return
 	target_position = GameManager.submarine.position
-	character_sprite.flip_h = target_position.x > position.x
+	character_sprite.scale.x = int(target_position.x < position.x)*2-1
 
 func _on_health_health_depleted() -> void:
 	queue_free()

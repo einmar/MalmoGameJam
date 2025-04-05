@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=4 uid="uid://dvlqtssi4uvto"]
+[gd_scene load_steps=19 format=4 uid="uid://dvlqtssi4uvto"]
 
 [ext_resource type="Script" uid="uid://3i1ueqkxi0co" path="res://scenes/submarine/submarine.gd" id="1_77ovh"]
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_oatge"]
 [ext_resource type="Texture2D" uid="uid://dl1m6fanooxmf" path="res://art/spritesheet_vechicles/submarine_background.png" id="2_m6bwt"]
 [ext_resource type="Texture2D" uid="uid://4e3wn4lmntih" path="res://art/spritesheet_vechicles/submarine.png" id="3_77ovh"]
+[ext_resource type="Texture2D" uid="uid://cye2t1lrge7s6" path="res://art/spritesheets_characters/2d_lights_and_shadows_neutral_point_light.webp" id="3_myfyj"]
 [ext_resource type="PackedScene" uid="uid://cyu1pos2ranyx" path="res://scenes/health/health.tscn" id="4_tnxgy"]
 [ext_resource type="Texture2D" uid="uid://c5rl3md7ylqan" path="res://art/spritesheet_vechicles/submarine_frame.png" id="5_efdjn"]
 [ext_resource type="Script" uid="uid://ppjd3ih5jfvu" path="res://scenes/submarine/water_level.gd" id="7_qooq6"]
@@ -7754,6 +7755,11 @@ script = ExtResource("1_77ovh")
 
 [node name="Submarine" type="Sprite2D" parent="."]
 texture = ExtResource("2_m6bwt")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(1.1, 0.5)
+color = Color(0.286821, 0.257459, 0.656062, 1)
+texture = ExtResource("3_myfyj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

@@ -1,10 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxoe84bmonmqc"]
+[gd_scene load_steps=13 format=3 uid="uid://dxoe84bmonmqc"]
 
 [ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="1_aysvu"]
 [ext_resource type="PackedScene" uid="uid://jlm4ay5ndld7" path="res://scenes/enemies/basic_enemy/basic_enemy.tscn" id="1_kl553"]
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="2_8pjya"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="4_c1mo7"]
+[ext_resource type="Script" uid="uid://beudspcqn6na" path="res://scenes/stations/light_station.gd" id="5_0ledb"]
+[ext_resource type="Script" uid="uid://co01quiavx3pe" path="res://scenes/gun/light.gd" id="6_xxmhc"]
+[ext_resource type="Texture2D" uid="uid://bihy8tmv4t5r5" path="res://art/spritesheet_vechicles/light.png" id="7_xxmhc"]
+
+[sub_resource type="Gradient" id="Gradient_m0a8x"]
+offsets = PackedFloat32Array(0, 0.00649351)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xxmhc"]
+gradient = SubResource("Gradient_m0a8x")
+width = 800
+height = 800
+
+[sub_resource type="Gradient" id="Gradient_1rmrp"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c1mo7"]
+gradient = SubResource("Gradient_1rmrp")
+width = 8
+height = 16
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x3m2o"]
+size = Vector2(4, 16)
 
 [node name="SasaSandbox" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(518, 150)
+texture = SubResource("GradientTexture2D_xxmhc")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0440612, 0.0700116, 0.136019, 1)
 
 [node name="BasicEnemy" parent="." instance=ExtResource("1_kl553")]
 position = Vector2(230, 144)
@@ -15,3 +44,36 @@ max_vertical_speed = 300.0
 
 [node name="Camera2D" parent="Submarine" node_paths=PackedStringArray("target") instance=ExtResource("1_aysvu")]
 target = NodePath("..")
+
+[node name="Player" parent="Submarine" instance=ExtResource("4_c1mo7")]
+position = Vector2(-67, 7)
+
+[node name="light_station" type="Node2D" parent="Submarine" node_paths=PackedStringArray("_lights")]
+script = ExtResource("5_0ledb")
+_lights = [NodePath("../light")]
+
+[node name="visual" type="Node2D" parent="Submarine/light_station"]
+
+[node name="control" type="Sprite2D" parent="Submarine/light_station/visual"]
+position = Vector2(-86, 38)
+texture = SubResource("GradientTexture2D_c1mo7")
+
+[node name="light" type="Node2D" parent="Submarine"]
+position = Vector2(-120, 0)
+rotation = 1.5708
+script = ExtResource("6_xxmhc")
+
+[node name="visual" type="Node2D" parent="Submarine/light"]
+position = Vector2(3.0598e-07, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/light/visual"]
+texture = SubResource("PlaceholderTexture2D_x3m2o")
+
+[node name="PointLight2D" type="PointLight2D" parent="Submarine/light/visual"]
+position = Vector2(0, 240)
+rotation = 1.5708
+scale = Vector2(3, 1.5)
+color = Color(0.486275, 1, 0.54902, 1)
+energy = 5.0
+texture = ExtResource("7_xxmhc")
+texture_scale = 0.2
