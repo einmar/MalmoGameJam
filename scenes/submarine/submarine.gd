@@ -6,7 +6,7 @@ signal water_level_changed(water_level: float)
 
 @export var max_vertical_speed: float = 100.0
 @export var max_horizontal_speed: float = 100.0
-
+@export var health: Health
 
 var buoyancy: float = 980.0
 var speed: float = 70.0
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	
 	# för avlusning
 	if Input.is_action_just_pressed("ui_home"):
-		$"Health".take_damage(10)
+		health.take_damage(10.0)
 	
 func set_dir(val, is_x):
 	if is_x:
@@ -75,9 +75,9 @@ func set_water_level(level):
 	print(water_level)
 	water_level_changed.emit(water_level)
 
-func _on_health_health_changed(health: int) -> void:
-	print("Took damage, current health:", health)
-	set_water_level(1.0 - float(health)/100.0)
+func _on_health_health_changed(health_value: float) -> void:
+	print("Took damage, current health:", health_value)
+	set_water_level(1.0 - float(health_value)/100.0)
 
 
 func _on_health_health_depleted() -> void:

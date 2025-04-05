@@ -1,9 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs83vhbet0gog"]
+[gd_scene load_steps=16 format=3 uid="uid://cs83vhbet0gog"]
 
 [ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="1_1hi0b"]
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_q66r3"]
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="2_8p02w"]
 [ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="3_1hi0b"]
+[ext_resource type="Script" path="res://scenes/stations/horizontal_station.gd" id="4_rphvf"]
+[ext_resource type="Script" uid="uid://dajmbm00s3t75" path="res://scenes/stations/vertical_station.gd" id="5_2h7q4"]
+[ext_resource type="Script" uid="uid://bnmb4aswl41qd" path="res://scenes/stations/gun_station.gd" id="7_37tov"]
+[ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://scenes/gun/gun.gd" id="8_obllt"]
+[ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://scenes/gun/bullet.tscn" id="9_rtudd"]
+[ext_resource type="Script" uid="uid://bdphab1745cjv" path="res://scenes/stations/pump_station.gd" id="10_2h7q4"]
+
+[sub_resource type="Gradient" id="Gradient_b65lc"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p38lw"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_b65lc")
+width = 8
+height = 16
+fill_from = Vector2(0.358974, 0.447293)
+fill_to = Vector2(0, 0.980057)
+
+[sub_resource type="Gradient" id="Gradient_s0xsx"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yfuu1"]
+gradient = SubResource("Gradient_s0xsx")
+width = 8
+height = 16
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kj756"]
+size = Vector2(4, 16)
 
 [node name="EinarsSandbox" type="Node2D"]
 
@@ -14,14 +40,62 @@ scale = Vector2(3.9269, -16.6724)
 texture = ExtResource("1_q66r3")
 
 [node name="Submarine" parent="." instance=ExtResource("2_8p02w")]
-position = Vector2(614, 147)
-collision_mask = 4
-
-[node name="Player2" parent="Submarine" instance=ExtResource("3_1hi0b")]
-position = Vector2(32, -25)
-player_index = 2
+position = Vector2(562, 149)
 
 [node name="Player" parent="Submarine" instance=ExtResource("3_1hi0b")]
-position = Vector2(-82, 7)
+position = Vector2(-31, 10)
+
+[node name="horizontal_sub_controller2" type="Node2D" parent="Submarine" node_paths=PackedStringArray("submarine")]
+position = Vector2(93, 28)
+script = ExtResource("4_rphvf")
+submarine = NodePath("..")
+
+[node name="visual" type="Node2D" parent="Submarine/horizontal_sub_controller2"]
+
+[node name="control" type="Sprite2D" parent="Submarine/horizontal_sub_controller2/visual"]
+texture = SubResource("GradientTexture2D_p38lw")
+
+[node name="vertical_sub_controller" type="Node2D" parent="Submarine" node_paths=PackedStringArray("submarine")]
+position = Vector2(-66, -26)
+script = ExtResource("5_2h7q4")
+submarine = NodePath("..")
+
+[node name="visual" type="Node2D" parent="Submarine/vertical_sub_controller"]
+
+[node name="control" type="Sprite2D" parent="Submarine/vertical_sub_controller/visual"]
+texture = SubResource("GradientTexture2D_yfuu1")
 
 [node name="Camera2D" parent="Submarine" instance=ExtResource("1_1hi0b")]
+
+[node name="gun_station" type="Node2D" parent="Submarine" node_paths=PackedStringArray("_guns")]
+position = Vector2(-41, 38)
+script = ExtResource("7_37tov")
+_guns = [NodePath("../gun")]
+
+[node name="visual" type="Node2D" parent="Submarine/gun_station"]
+
+[node name="control" type="Sprite2D" parent="Submarine/gun_station/visual"]
+texture = SubResource("GradientTexture2D_yfuu1")
+
+[node name="gun" type="Node2D" parent="Submarine"]
+position = Vector2(5, 48)
+script = ExtResource("8_obllt")
+bullet_prefab = ExtResource("9_rtudd")
+
+[node name="visual" type="Node2D" parent="Submarine/gun"]
+position = Vector2(0, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/gun/visual"]
+texture = SubResource("PlaceholderTexture2D_kj756")
+
+[node name="exit" type="Node2D" parent="Submarine/gun"]
+position = Vector2(0, 16)
+rotation = -0.82355
+
+[node name="pump_station" type="Node2D" parent="Submarine"]
+position = Vector2(-85, 40)
+script = ExtResource("10_2h7q4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/pump_station"]
+scale = Vector2(0.05, 0.1)
+texture = ExtResource("1_q66r3")
