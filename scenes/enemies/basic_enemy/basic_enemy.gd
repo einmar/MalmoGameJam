@@ -27,8 +27,8 @@ func _physics_process(delta: float) -> void:
 func attack():
 	can_attack = false
 	attack_timer.start()
-	GameManager.submarine.attacked(damage)
-
+	var player_health: Health = GameManager.submarine.find_child("Health")
+	player_health.take_damage(damage)
 
 ############ Helper functions ############
 
@@ -52,3 +52,6 @@ func set_target() -> void:
 	if not GameManager.submarine:
 		return
 	target_position = GameManager.submarine.position
+
+func _on_health_health_depleted() -> void:
+	queue_free()

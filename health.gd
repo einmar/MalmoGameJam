@@ -1,7 +1,7 @@
 extends Node2D
 class_name Health
 
-signal health_changed 
+signal health_changed(health: int)
 signal health_depleted
 
 @export var max_health: int = 100

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://jlm4ay5ndld7"]
+[gd_scene load_steps=6 format=3 uid="uid://jlm4ay5ndld7"]
 
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_6tdk0"]
 [ext_resource type="Script" uid="uid://cvadl04swgs52" path="res://scenes/enemies/basic_enemy/basic_enemy.gd" id="1_hsin2"]
+[ext_resource type="PackedScene" uid="uid://cyu1pos2ranyx" path="res://scenes/health/health.tscn" id="3_oyl6e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mone4"]
 radius = 40.0
@@ -28,6 +29,8 @@ one_shot = true
 wait_time = 0.5
 autostart = true
 
+[node name="Health" parent="." instance=ExtResource("3_oyl6e")]
+
 [node name="attack_range" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
@@ -37,5 +40,6 @@ shape = SubResource("CircleShape2D_oyl6e")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="TargetUpdateTimer" to="." method="_on_target_update_timer_timeout"]
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
 [connection signal="body_entered" from="attack_range" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="attack_range" to="." method="_on_attack_range_body_exited"]

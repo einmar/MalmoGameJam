@@ -61,3 +61,10 @@ func get_station(pos: Vector2, radius: float) -> BaseStation:
 
 func attacked(damage:int):
 	print("Ouch for: ", damage)
+
+
+func _on_health_health_changed(health: int) -> void:
+	print("Submarine took damage, current health:", health)
+
+func _on_health_health_depleted() -> void:
+	print("Submarine sunk, GAME OVER")
