@@ -3,16 +3,19 @@ extends CharacterBody2D
 class_name Submarine
 
 
-var buoyancy: float = 980.0
-var speed: float = 70.0
-var player_index: int = 1
-var is_steering: bool = false
+var buoyancy: float = 970.0
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+var stations: Array[BaseStation] = []
 func _ready() -> void:
 	GameManager.submarine = self
+    for child in get_children():
+        if child is BaseStation:
+            stations.append(child)
+            
+    print(stations)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -33,4 +36,19 @@ func _physics_process(delta: float) -> void:
 		
 		velocity += direction * speed * delta
 
+
+    move_and_slide()
+    
+func get_station(pos: Vector2, radius: float) -> BaseStation:
+    
+    var closest_station = null
+    var d: float = INF
+    for station in stations:
+        var dist: float = pos.distance_to(station.transform.get_origin())
+        if dist < radius and dist < d:
+            d = dist
+            closest_station = station
+            
+    return closest_station
+            
 	move_and_slide()

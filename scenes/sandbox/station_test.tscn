@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://s2yb75setg2x"]
+
+[ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="1_1wob4"]
+[ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="2_2ct8r"]
+[ext_resource type="Script" uid="uid://dajmbm00s3t75" path="res://scenes/stations/vertical_station.gd" id="4_61oe3"]
+
+[sub_resource type="Gradient" id="Gradient_61oe3"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m0a8x"]
+gradient = SubResource("Gradient_61oe3")
+width = 16
+height = 32
+fill_from = Vector2(0.022792, 0.951567)
+fill_to = Vector2(0, 0.980057)
+
+[node name="StationTest" type="Node2D"]
+
+[node name="Submarine" parent="." instance=ExtResource("1_1wob4")]
+position = Vector2(562, 149)
+
+[node name="Player" parent="Submarine" instance=ExtResource("2_2ct8r")]
+position = Vector2(-25, -31)
+
+[node name="base_station" type="Node2D" parent="Submarine" node_paths=PackedStringArray("submarine")]
+script = ExtResource("4_61oe3")
+submarine = NodePath("..")
+
+[node name="visual" type="Node2D" parent="Submarine/base_station"]
+
+[node name="control" type="Sprite2D" parent="Submarine/base_station/visual"]
+position = Vector2(127, -64)
+texture = SubResource("GradientTexture2D_m0a8x")
