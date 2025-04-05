@@ -21,20 +21,20 @@ gradient = SubResource("Gradient_m0a8x")
 width = 800
 height = 800
 
-[sub_resource type="Gradient" id="Gradient_1rmrp"]
+[sub_resource type="Gradient" id="Gradient_5068x"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_c1mo7"]
-gradient = SubResource("Gradient_1rmrp")
+gradient = SubResource("Gradient_5068x")
 width = 8
 height = 16
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x3m2o"]
 size = Vector2(4, 16)
 
-[sub_resource type="Gradient" id="Gradient_c4s7v"]
+[sub_resource type="Gradient" id="Gradient_0bg4w"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vn25n"]
-gradient = SubResource("Gradient_c4s7v")
+gradient = SubResource("Gradient_0bg4w")
 width = 8
 height = 16
 
@@ -58,6 +58,7 @@ color = Color(0.133176, 0.181945, 0.305763, 1)
 position = Vector2(230, 144)
 
 [node name="Submarine" parent="." instance=ExtResource("2_8pjya")]
+z_index = 0
 position = Vector2(516, 151)
 max_vertical_speed = 300.0
 

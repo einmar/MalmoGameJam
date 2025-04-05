@@ -27,6 +27,9 @@ func _ready() -> void:
 	for child in get_children():
 		if child is BaseStation:
 			stations.append(child)
+		for nested_child in child.get_children():
+			if nested_child is BaseStation:
+				stations.append(nested_child)
 
 
 func _physics_process(delta: float) -> void:
