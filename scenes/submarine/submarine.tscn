@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3i1ueqkxi0co" path="res://scenes/submarine/submarine.gd" id="1_77ovh"]
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_oatge"]
-[ext_resource type="Texture2D" uid="uid://dcm5dbndu0ldd" path="res://art/spritesheet_vechicles/submarine.png" id="3_77ovh"]
+[ext_resource type="Texture2D" uid="uid://4e3wn4lmntih" path="res://art/spritesheet_vechicles/submarine.png" id="3_77ovh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tnxgy"]
 radius = 48.0

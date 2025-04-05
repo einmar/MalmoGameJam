@@ -27,26 +27,41 @@ func level_setup() -> void:
 
 func spawn_enemy():
 	var spawn_side = randi_range(0,3)
-	#var camera_size = player.get_viewport_rect().size * main_camera.zoom
-	#var camera_rect = Rect2(main_camera.get_camera_screen_center() - camera_size / 2, camera_size)
+	var camera_size = main_camera.get_viewport_rect().size * main_camera.zoom
+	var camera_rect = [main_camera.get_screen_center_position().x - camera_size.x / 2,
+					main_camera.get_screen_center_position().y - camera_size.y / 2,
+					main_camera.get_screen_center_position().x + camera_size.x / 2,
+					main_camera.get_screen_center_position().y + camera_size.y / 2]
 	#print(camera_rect)
-
+	match spawn_side:
+		0:
+			# left side of the screen
+			pass
+		1:
+			# top side of the screen
+			pass
+		2:
+			# right side of the screen
+			pass
+		3:
+			# bottom side of the screen
+			pass
 
 
 ############ Global references ############
 func add(key: String, value):
-    references[key] = value
+	references[key] = value
 
 func remove(key: String):
-    if references.has(key):
-        references.erase(key)
-        return true
-    return false
+	if references.has(key):
+		references.erase(key)
+		return true
+	return false
 
 func clear_references():
-    references.clear()
+	references.clear()
 
 func fetch(key):
-    if references.has(key):
-        return references[key]
-    return null
+	if references.has(key):
+		return references[key]
+	return null

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxoe84bmonmqc"]
+[gd_scene load_steps=4 format=3 uid="uid://dxoe84bmonmqc"]
 
+[ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="1_aysvu"]
 [ext_resource type="PackedScene" uid="uid://jlm4ay5ndld7" path="res://scenes/enemies/basic_enemy/basic_enemy.tscn" id="1_kl553"]
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="2_8pjya"]
 
@@ -9,4 +10,7 @@
 position = Vector2(230, 144)
 
 [node name="Submarine" parent="." instance=ExtResource("2_8pjya")]
-position = Vector2(517, 153)
+position = Vector2(516, 151)
+
+[node name="Camera2D" parent="Submarine" node_paths=PackedStringArray("target") instance=ExtResource("1_aysvu")]
+target = NodePath("..")

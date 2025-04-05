@@ -17,11 +17,11 @@ const JUMP_VELOCITY = -400.0
 var stations: Array[BaseStation] = []
 func _ready() -> void:
 	GameManager.submarine = self
-    for child in get_children():
-        if child is BaseStation:
-            stations.append(child)
-            
-    print(stations)
+	for child in get_children():
+		if child is BaseStation:
+			stations.append(child)
+			
+	print(stations)
 
 func _physics_process(delta: float) -> void:
 	timer += delta
@@ -45,18 +45,18 @@ func _physics_process(delta: float) -> void:
 	rotation = deg_to_rad(velocity.x / tilt_damping) + sin(timer * turbulence)/tilt_damping
 
 
-    move_and_slide()
-    
+	move_and_slide()
+	
 func get_station(pos: Vector2, radius: float) -> BaseStation:
-    
-    var closest_station = null
-    var d: float = INF
-    for station in stations:
-        var dist: float = pos.distance_to(station.transform.get_origin())
-        if dist < radius and dist < d:
-            d = dist
-            closest_station = station
-            
-    return closest_station
+	
+	var closest_station = null
+	var d: float = INF
+	for station in stations:
+		var dist: float = pos.distance_to(station.transform.get_origin())
+		if dist < radius and dist < d:
+			d = dist
+			closest_station = station
+			
+	return closest_station
 
 	
