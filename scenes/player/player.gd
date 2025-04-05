@@ -6,7 +6,7 @@ class_name Player
 @export var sprite_animated: AnimatedSprite2D
 
 const SPEED = 70.0
-const JUMP_VELOCITY = -200.0
+const JUMP_VELOCITY = -240.0
 
 var _active_station: BaseStation = null
 var in_water: bool = false

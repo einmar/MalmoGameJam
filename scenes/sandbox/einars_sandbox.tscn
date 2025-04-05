@@ -45,6 +45,10 @@ position = Vector2(562, 149)
 [node name="Player" parent="Submarine" instance=ExtResource("3_1hi0b")]
 position = Vector2(-31, 10)
 
+[node name="Player2" parent="Submarine" instance=ExtResource("3_1hi0b")]
+position = Vector2(48, -23)
+player_index = 2
+
 [node name="horizontal_sub_controller2" type="Node2D" parent="Submarine" node_paths=PackedStringArray("submarine")]
 position = Vector2(93, 28)
 script = ExtResource("4_rphvf")
