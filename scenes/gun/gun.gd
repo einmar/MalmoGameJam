@@ -2,10 +2,12 @@ extends Node2D
 class_name Gun
 
 @export var shot_cooldown: float = 0.5 # Cooldown time in seconds
+@export var bullet_prefab: PackedScene # The bullet prefab to instantiate
+
+var exit : Node2D
 var last_shot : float = 0.0
 func _ready() -> void:
-    # Called when the node enters the scene tree for the first time.
-    pass
+    exit = find_child("exit")
 
 func _process(delta: float) -> void:
     # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,3 +25,8 @@ func shoot() -> void:
     var time_now = Time.get_unix_time_from_system()
     if time_now - last_shot > shot_cooldown:
         last_shot = time_now
+
+        var bullet = bullet_prefab.instantiate()
+        bullet.transform.origin = exit.global_position
+        bullet.rotation = rotation
+        get_tree().current_scene.add_child(bullet)
