@@ -3,6 +3,7 @@ extends Node
 
 var references = {}
 var player: Player
+var submarine: Player
 var main_camera: Camera2D
 var scene_root_node: Node2D
 var enemy_spawn_timer: Timer
@@ -25,8 +26,8 @@ func level_setup():
 
 func spawn_enemy():
 	var spawn_side = randi_range(0,3)
-	var camera_size = player.get_viewport_rect().size * main_camera.zoom
-	var camera_rect = Rect2(main_camera.get_camera_screen_center() - camera_size / 2, camera_size)
+	#var camera_size = player.get_viewport_rect().size * main_camera.zoom
+	#var camera_rect = Rect2(main_camera.get_camera_screen_center() - camera_size / 2, camera_size)
 	print(camera_rect)
 
 
