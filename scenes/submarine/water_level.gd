@@ -7,7 +7,8 @@ var sprite_rotation: float
 # Called when the node enters
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	scale = Vector2(0,1)
+	position.y = position_empty
+	sprite_rotation = global_rotation
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
