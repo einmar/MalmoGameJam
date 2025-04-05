@@ -1,24 +1,27 @@
-[gd_scene load_steps=6 format=4 uid="uid://cs83vhbet0gog"]
+[gd_scene load_steps=5 format=3 uid="uid://cs83vhbet0gog"]
 
+[ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="1_1hi0b"]
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_q66r3"]
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="2_8p02w"]
 [ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="3_1hi0b"]
 
 [node name="EinarsSandbox" type="Node2D"]
 
-[node name="f" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.0339208, 0.753759, 0.381074, 1)
+position = Vector2(583, 327)
+scale = Vector2(3.9269, -16.6724)
+texture = ExtResource("1_q66r3")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(634, 333)
-tile_map_data = PackedByteArray("AAD3//n/AAAAAAAAAAD3//r/AAAAAAEAAAD3//v/AAAAAAEAAAD3//z/AAAAAAEAAAD3//3/AAAAAAEAAAD3//7/AAAAAAEAAAD3////AAAAAAEAAAD3/wAAAAAAAAUAAAD3/wEAAAAAAAQAAAD3/wIAAAAAAAQAAAD3/wMAAAAAAAQAAAD3/wQAAAAAAAQAAAD3/wUAAAAAAAQAAAD3/wYAAAAAAAcAAAD4//n/AAABAAAAAAD4//z/AAABAAEAAAD4/wYAAAAEAAcAAAD5//n/AAABAAAAAAD5//z/AAABAAEAAAD5/wYAAAAEAAcAAAD6//n/AAABAAAAAAD6//z/AAABAAEAAAD6/wMAAAABAAEAAAD6/wYAAAAEAAcAAAD7//n/AAABAAAAAAD7//z/AAABAAEAAAD7/wMAAAABAAEAAAD7/wYAAAAEAAcAAAD8//n/AAABAAAAAAD8//z/AAABAAEAAAD8/wMAAAABAAEAAAD8/wYAAAAEAAcAAAD9//n/AAABAAAAAAD9////AAABAAEAAAD9/wMAAAABAAEAAAD9/wYAAAAEAAcAAAD+//n/AAABAAAAAAD+////AAABAAEAAAD+/wMAAAABAAEAAAD+/wYAAAAEAAcAAAD///n/AAABAAAAAAD/////AAABAAEAAAD//wYAAAAEAAcAAAAAAPn/AAABAAAAAAAAAP//AAABAAEAAAAAAAYAAAAEAAcAAAABAPn/AAABAAAAAAABAP//AAABAAEAAAABAAYAAAAEAAcAAAACAPn/AAABAAAAAAACAAYAAAAEAAcAAAADAPn/AAABAAAAAAADAAIAAAABAAEAAAADAAYAAAAEAAcAAAAEAPn/AAABAAAAAAAEAP3/AAABAAEAAAAEAAIAAAABAAEAAAAEAAYAAAAEAAcAAAAFAPn/AAABAAAAAAAFAP3/AAABAAEAAAAFAAIAAAABAAEAAAAFAAYAAAAGAAcAAAAGAPn/AAAFAAAAAAAGAP3/AAABAAEAAAAGAAIAAAABAAEAAAAGAAYAAAAGAAcAAAAHAPn/AAAFAAAAAAAHAP3/AAABAAEAAAAHAAIAAAABAAEAAAAHAAYAAAAGAAcAAAAIAPn/AAAGAAAAAAAIAP3/AAABAAEAAAAIAAIAAAABAAEAAAAIAAYAAAAGAAcAAAAJAPn/AAAHAAAAAAAJAPr/AAAHAAUAAAAJAPv/AAAHAAUAAAAJAPz/AAAHAAUAAAAJAP3/AAAHAAUAAAAJAP7/AAAHAAUAAAAJAP//AAAHAAUAAAAJAAAAAAAHAAUAAAAJAAEAAAAHAAUAAAAJAAIAAAAHAAUAAAAJAAMAAAAHAAUAAAAJAAQAAAAHAAUAAAAJAAUAAAAHAAUAAAAJAAYAAAAHAAcAAAA=")
-tile_set = SubResource("TileSet_24328")
-script = ExtResource("2_1hi0b")
+[node name="Submarine" parent="." instance=ExtResource("2_8p02w")]
+position = Vector2(614, 147)
+collision_mask = 4
 
-[node name="Player" parent="." instance=ExtResource("3_1hi0b")]
-position = Vector2(613, 295)
-collision_mask = 1
-
-[node name="Player2" parent="." instance=ExtResource("3_1hi0b")]
-position = Vector2(715, 344)
-collision_mask = 1
+[node name="Player2" parent="Submarine" instance=ExtResource("3_1hi0b")]
+position = Vector2(32, -25)
 player_index = 2
+
+[node name="Player" parent="Submarine" instance=ExtResource("3_1hi0b")]
+position = Vector2(-82, 7)
+
+[node name="Camera2D" parent="Submarine" instance=ExtResource("1_1hi0b")]
