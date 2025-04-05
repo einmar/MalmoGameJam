@@ -7,12 +7,7 @@ script = ExtResource("1_fmd0w")
 enemy_spawn_amount = 1
 enemy_toughness = 1.0
 enemy_spawn_cooldown = 1.0
-enemy_scenes = {
-1: [],
-2: [],
-3: [],
-4: [],
-5: [],
-6: []
-}
+enemy_scenes = Dictionary[int, Array]({
+0: []
+})
 metadata/_custom_type_script = "uid://bgu5df0wfjgfx"

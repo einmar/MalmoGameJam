@@ -1,6 +1,5 @@
 extends Node
 
-
 var references = {}
 var player: Player
 var submarine: Submarine
@@ -9,44 +8,70 @@ var scene_root_node: Node2D
 var enemy_spawn_timer: Timer
 var current_depth_resource: DepthResource
 
+var spawn_offset = 10
 
 ############ Initialize ############
 func _ready() -> void:
-    current_depth_resource = load("res://resources/0_depth.tres")
-    call_deferred("level_setup")
+	current_depth_resource = load("res://resources/0_depth.tres")
+	call_deferred("level_setup")
 
 func level_setup() -> void:
-    enemy_spawn_timer = Timer.new()
-    scene_root_node = get_tree().current_scene
-    scene_root_node.add_child(enemy_spawn_timer)
-    enemy_spawn_timer.timeout.connect(spawn_enemy)
-    enemy_spawn_timer.start(current_depth_resource.enemy_spawn_cooldown)
+	enemy_spawn_timer = Timer.new()
+	scene_root_node = get_tree().current_scene
+	scene_root_node.add_child(enemy_spawn_timer)
+	enemy_spawn_timer.timeout.connect(spawn_enemy)
+	enemy_spawn_timer.start(current_depth_resource.enemy_spawn_cooldown)
 
 
 ############ Enemy Logic ############
 
 func spawn_enemy():
-    var spawn_side = randi_range(0,3)
-    #var camera_size = player.get_viewport_rect().size * main_camera.zoom
-    #var camera_rect = Rect2(main_camera.get_camera_screen_center() - camera_size / 2, camera_size)
-    #print(camera_rect)
-
+	var spawn_side = randi_range(0,3)
+	var camera_size = main_camera.get_viewport_rect().size * main_camera.zoom
+	var camera_rect = [main_camera.get_screen_center_position().x - camera_size.x / 2,
+					main_camera.get_screen_center_position().y - camera_size.y / 2,
+					main_camera.get_screen_center_position().x + camera_size.x / 2,
+					main_camera.get_screen_center_position().y + camera_size.y / 2]
+	#print(camera_rect)
+	var spawn_position: Vector2 = Vector2.ZERO
+	match spawn_side:
+		0:
+			# left side of the screen
+			print("Spawn Left")
+			spawn_position = Vector2(camera_rect[0] - spawn_offset,
+									 randi_range(camera_rect[1], camera_rect[3]))
+		1:
+			# top side of the screen
+			print("Spawn Top")
+			spawn_position = Vector2(randf_range(camera_rect[0], camera_rect[2]),
+									 camera_rect[1] - spawn_offset)
+		2:
+			# right side of the screen
+			print("Spawn Right")
+			spawn_position = Vector2(camera_rect[2] + spawn_offset,
+									 randi_range(camera_rect[1], camera_rect[3]))
+		3:
+			# bottom side of the screen
+			print("Spawn Bottom")
+			spawn_position = Vector2(randf_range(camera_rect[0], camera_rect[2]),
+												 camera_rect[3] + spawn_offset)
+	print(spawn_position)
 
 
 ############ Global references ############
 func add(key: String, value):
-    references[key] = value
+	references[key] = value
 
 func remove(key: String):
-    if references.has(key):
-        references.erase(key)
-        return true
-    return false
+	if references.has(key):
+		references.erase(key)
+		return true
+	return false
 
 func clear_references():
-    references.clear()
+	references.clear()
 
 func fetch(key):
-    if references.has(key):
-        return references[key]
-    return null
+	if references.has(key):
+		return references[key]
+	return null
