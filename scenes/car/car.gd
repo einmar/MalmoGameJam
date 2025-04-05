@@ -12,7 +12,8 @@ var steering: float = 0
 var speed: float = 0
 
 func _ready() -> void:
-	GameManager.player = self
+	#GameManager.player = self
+	pass
 
 
 

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DepthResource" load_steps=2 format=3 uid="uid://vlh7p65dvo12"]
+
+[ext_resource type="Script" uid="uid://bgu5df0wfjgfx" path="res://resources/depth_resource.gd" id="1_fmd0w"]
+
+[resource]
+script = ExtResource("1_fmd0w")
+enemy_spawn_amount = 1
+enemy_toughness = 1.0
+enemy_spawn_cooldown = 1.0
+enemy_scenes = {
+1: [],
+2: [],
+3: [],
+4: [],
+5: [],
+6: []
+}
+metadata/_custom_type_script = "uid://bgu5df0wfjgfx"
