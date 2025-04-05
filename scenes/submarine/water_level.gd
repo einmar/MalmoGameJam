@@ -19,3 +19,13 @@ func _on_submarine_water_level_changed(water_level: float) -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(0,pos), 0.5)
 	
+
+
+func _on_water_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.in_water = true
+
+
+func _on_water_area_body_exited(body: Node2D) -> void:
+	if body is Player:
+		body.in_water = false

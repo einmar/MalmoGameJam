@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dvlqtssi4uvto"]
+[gd_scene load_steps=19 format=4 uid="uid://dvlqtssi4uvto"]
 
 [ext_resource type="Script" uid="uid://3i1ueqkxi0co" path="res://scenes/submarine/submarine.gd" id="1_77ovh"]
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_oatge"]
@@ -7747,6 +7747,9 @@ turbulence_enabled = true
 turbulence_noise_scale = 2.0
 turbulence_noise_speed_random = 0.4
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qooq6"]
+size = Vector2(120, 270)
+
 [node name="Submarine" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 5
@@ -7790,6 +7793,16 @@ preprocess = 10.0
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_8xtpu")
 
+[node name="WaterArea" type="Area2D" parent="WaterMask/WaterLevel" groups=["water"]]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterMask/WaterLevel/WaterArea"]
+position = Vector2(45, -5.96046e-07)
+shape = SubResource("RectangleShape2D_qooq6")
+
 [connection signal="water_level_changed" from="." to="WaterMask/WaterLevel" method="_on_submarine_water_level_changed"]
 [connection signal="health_changed" from="Health" to="." method="_on_health_health_changed"]
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
+[connection signal="body_entered" from="WaterMask/WaterLevel/WaterArea" to="WaterMask/WaterLevel" method="_on_water_area_body_entered"]
+[connection signal="body_exited" from="WaterMask/WaterLevel/WaterArea" to="WaterMask/WaterLevel" method="_on_water_area_body_exited"]
