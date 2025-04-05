@@ -26,14 +26,11 @@ func control_station(delta) -> void:
 	if _grabbed_control:
 		on_enter()
 		return
-	
-	if Input.is_joy_known(0):
-		pass
-	else:
-		if Input.is_action_just_pressed(_player.input_key("use")):
-			on_leave()
-			print("left")
-			_player.leave_station()
+
+	if Input.is_action_just_pressed(_player.input_key("use")):
+		on_leave()
+		print("left")
+		_player.leave_station()
 
 func on_enter() -> void:
 	pass

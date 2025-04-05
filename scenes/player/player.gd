@@ -10,6 +10,8 @@ const JUMP_VELOCITY = -300.0
 
 var _active_station: BaseStation = null
 var in_water: bool = false
+var using_station: bool = false
+var interataction_stopped: bool = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -45,7 +47,16 @@ func animate() -> void:
 	var idle = is_on_floor() and is_zero_approx(velocity.x)
 	var swim_idle = in_water and is_zero_approx(velocity.x)
 	var jumping = Input.is_action_just_pressed("player{i}_jump".format({"i":player_index})) and is_on_floor()
-	if in_water:
+	
+	if interataction_stopped:
+		if sprite_animated.animation == "interaction_back_stop":
+			return
+		sprite_animated.play("interaction_back_stop")
+	elif using_station:
+		if sprite_animated.animation == "interaction_back":
+			return
+		sprite_animated.play("interaction_back")
+	elif in_water:
 		if swim_idle:
 			sprite_animated.play("swim_idle")
 		else:
@@ -66,21 +77,27 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed(input_key("use")):
 		if closest_station.activate(self):
+			using_station = true
 			_active_station = closest_station;
-	
+			
 	
 func input_key(key) -> String:
 	return "player%s_%s" % [player_index, key]
 	
 func check_for_stations() -> BaseStation:
 	var sub = find_parent("Submarine")
-	return sub.get_station(position, 1000.0)
+	return sub.get_station(position, 10.0)
 
 func leave_station() -> void:
 	_active_station._player = null
 	_active_station = null
-
+	interataction_stopped = true
+	using_station = false
 
 func _on_player_animated_sprite_2d_animation_finished() -> void:
 	if sprite_animated.animation == "jump_start":
 		sprite_animated.play("jump")
+	if sprite_animated.animation == "interaction_back_stop":
+		interataction_stopped = false
+	
+		

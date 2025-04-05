@@ -29,10 +29,10 @@ position = Vector2(0, -7)
 texture = SubResource("AtlasTexture_gmlin")
 
 [node name="PlayerAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 sprite_frames = ExtResource("3_gmlin")
-animation = &"swim_idle"
+animation = &"interaction_back_stop"
 autoplay = "idle"
-frame_progress = 0.968097
 offset = Vector2(0, -16)
 
 [connection signal="animation_finished" from="PlayerAnimatedSprite2D" to="." method="_on_player_animated_sprite_2d_animation_finished"]
