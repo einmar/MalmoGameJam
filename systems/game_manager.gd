@@ -15,13 +15,13 @@ func _ready() -> void:
 	current_depth_resource = load("res://resources/0_depth.tres")
 	call_deferred("level_setup")
 
-func level_setup():
+func level_setup() -> void:
 	enemy_spawn_timer = Timer.new()
 	scene_root_node = get_tree().current_scene
-	print(scene_root_node)
 	scene_root_node.add_child(enemy_spawn_timer)
-	enemy_spawn_timer.connect("_on_timer_timeout", spawn_enemy())
+	enemy_spawn_timer.timeout.connect(spawn_enemy)
 	enemy_spawn_timer.start(current_depth_resource.enemy_spawn_cooldown)
+
 
 ############ Enemy Logic ############
 
