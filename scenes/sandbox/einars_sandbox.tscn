@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://cs83vhbet0gog"]
+[gd_scene load_steps=6 format=4 uid="uid://cs83vhbet0gog"]
 
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_q66r3"]
 [ext_resource type="Script" uid="uid://d0k3ld5lrb6tv" path="res://scenes/sandbox/tile_map_layer.gd" id="2_1hi0b"]
-[ext_resource type="Script" uid="uid://cg8seafvi6djd" path="res://scenes/sandbox/character_body_2d.gd" id="2_8p02w"]
+[ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="3_1hi0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1hi0b"]
 texture = ExtResource("1_q66r3")
@@ -139,10 +139,6 @@ texture = ExtResource("1_q66r3")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_1hi0b")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_opmdy"]
-radius = 7.0
-height = 24.0
-
 [node name="EinarsSandbox" type="Node2D"]
 
 [node name="f" type="Sprite2D" parent="."]
@@ -153,14 +149,9 @@ tile_map_data = PackedByteArray("AAD3//n/AAAAAAAAAAD3//r/AAAAAAEAAAD3//v/AAAAAAE
 tile_set = SubResource("TileSet_24328")
 script = ExtResource("2_1hi0b")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(626, 283)
-script = ExtResource("2_8p02w")
+[node name="Player" parent="." instance=ExtResource("3_1hi0b")]
+position = Vector2(613, 295)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_opmdy")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(-3.8147e-06, -0.5)
-scale = Vector2(0.109375, 0.195313)
-texture = ExtResource("1_q66r3")
+[node name="Player2" parent="." instance=ExtResource("3_1hi0b")]
+position = Vector2(715, 344)
+player_index = 2
