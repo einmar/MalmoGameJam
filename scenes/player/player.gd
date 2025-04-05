@@ -4,8 +4,8 @@ class_name Player
 
 @export var player_index: int = 1
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 70.0
+const JUMP_VELOCITY = -300.0
 
 
 func _physics_process(delta: float) -> void:

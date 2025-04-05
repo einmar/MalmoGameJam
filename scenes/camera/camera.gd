@@ -6,4 +6,3 @@ extends Camera2D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position = lerp(position, target.position, follow_strength/100.0)
-	print(position, target.position)

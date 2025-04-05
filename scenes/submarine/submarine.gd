@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Submarine
 
 
-var buoyancy: float = 970.0
+var buoyancy: float = 980.0
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
