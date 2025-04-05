@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var damage: int = 10
-@export var base_speed: int = 20
+@export var base_speed: int = 100
 
 @onready var attack_timer: Timer = $AttackTimer
 @onready var target_update_timer: Timer = $TargetUpdateTimer
