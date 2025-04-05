@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	direction = Vector2.ZERO
 	
-	# For debug
+	# för avlusning
 	if Input.is_action_just_pressed("ui_home"):
 		$"Health".take_damage(10)
 	
