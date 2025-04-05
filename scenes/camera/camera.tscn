@@ -3,5 +3,4 @@
 [ext_resource type="Script" uid="uid://ehy5yeg2unui" path="res://scenes/camera/camera.gd" id="1_xejhd"]
 
 [node name="Camera2D" type="Camera2D"]
-position_smoothing_enabled = true
 script = ExtResource("1_xejhd")
