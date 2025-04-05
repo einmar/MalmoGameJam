@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcs16k6mmcs8f"
-path="res://.godot/imported/spritesheet_basicground.png-c29c0deefd7f1e1a098ffce69d3c2db7.ctex"
+uid="uid://bqpcsrt68abmp"
+path="res://.godot/imported/spritesheet_playablecharacter_1.png-737760cd8ba8a7985e428866ac2959e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Spritesheets env/spritesheet_basicground.png"
-dest_files=["res://.godot/imported/spritesheet_basicground.png-c29c0deefd7f1e1a098ffce69d3c2db7.ctex"]
+source_file="res://art/spritesheets_characters/spritesheet_playablecharacter_1.png"
+dest_files=["res://.godot/imported/spritesheet_playablecharacter_1.png-737760cd8ba8a7985e428866ac2959e1.ctex"]
 
 [params]
 
