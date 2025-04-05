@@ -30,8 +30,8 @@ animations = [{
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_oyl6e"]
 polygon = PackedVector2Array(-1, -4, -2, -7, -3, -7, -5.2, -5, -8.5, -5, -11.5, -1, -13, 1, -13, 3, -12, 4, -13, 8, -9, 8, -6, 7, 2.2, 7, 7, 4.6, 8, 6, 10, 6, 10, -3.6, 7, -2, 4, -2)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mone4"]
-radius = 6.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkcty"]
+size = Vector2(27, 18)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oyl6e"]
 radius = 25.0
@@ -58,7 +58,8 @@ position = Vector2(1, -1)
 occluder = SubResource("OccluderPolygon2D_oyl6e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_mone4")
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_mkcty")
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.5

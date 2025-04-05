@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://s2yb75setg2x"]
+[gd_scene load_steps=16 format=3 uid="uid://s2yb75setg2x"]
 
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="1_1wob4"]
-[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_2ct8r"]
-[ext_resource type="Script" path="res://scenes/stations/horizontal_station.gd" id="3_m0a8x"]
+[ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="2_2ct8r"]
+[ext_resource type="Script" uid="uid://00vlrniyevw2" path="res://scenes/stations/horizontal_station.gd" id="3_m0a8x"]
 [ext_resource type="Script" uid="uid://dajmbm00s3t75" path="res://scenes/stations/vertical_station.gd" id="4_61oe3"]
 [ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="4_m0a8x"]
 [ext_resource type="Script" uid="uid://bnmb4aswl41qd" path="res://scenes/stations/gun_station.gd" id="6_1rmrp"]
 [ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://scenes/gun/gun.gd" id="7_eda08"]
+[ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://scenes/gun/bullet.tscn" id="8_eda08"]
 
 [sub_resource type="Gradient" id="Gradient_eda08"]
 
@@ -82,9 +83,14 @@ texture = SubResource("GradientTexture2D_eda08")
 [node name="gun" type="Node2D" parent="Submarine"]
 position = Vector2(5, 48)
 script = ExtResource("7_eda08")
+bullet_prefab = ExtResource("8_eda08")
 
 [node name="visual" type="Node2D" parent="Submarine/gun"]
 position = Vector2(0, 8)
 
 [node name="Sprite2D" type="Sprite2D" parent="Submarine/gun/visual"]
 texture = SubResource("PlaceholderTexture2D_1rmrp")
+
+[node name="exit" type="Node2D" parent="Submarine/gun"]
+position = Vector2(0, 16)
+rotation = -0.82355
