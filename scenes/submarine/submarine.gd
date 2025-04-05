@@ -55,4 +55,5 @@ func get_station(pos: Vector2, radius: float) -> BaseStation:
 			
 	return closest_station
 
-	
+func attacked(damage:int):
+	print("Ouch for: ", damage)

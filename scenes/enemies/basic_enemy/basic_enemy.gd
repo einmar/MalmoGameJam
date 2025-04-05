@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 func attack():
 	can_attack = false
 	attack_timer.start()
-	GameManager.player.attacked(damage)
+	GameManager.submarine.attacked(damage)
 
 
 ############ Helper functions ############
