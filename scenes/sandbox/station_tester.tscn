@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bypfhsklcsg7p"]
+[gd_scene load_steps=6 format=3 uid="uid://cxk76n3dpo6mg"]
 
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="1_104on"]
 [ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="2_ggqku"]
+[ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="3_eus4f"]
 
 [sub_resource type="Gradient" id="Gradient_ggqku"]
 colors = PackedColorArray(0, 0.541176, 0, 1, 1, 1, 1, 1)
@@ -28,3 +29,5 @@ texture = SubResource("GradientTexture2D_eus4f")
 
 [node name="Player" parent="Submarine" instance=ExtResource("2_ggqku")]
 position = Vector2(10.5001, -32.4999)
+
+[node name="Camera2D" parent="Submarine" instance=ExtResource("3_eus4f")]

@@ -1,32 +1,65 @@
-[gd_scene load_steps=6 format=3 uid="uid://s2yb75setg2x"]
+[gd_scene load_steps=12 format=3 uid="uid://s2yb75setg2x"]
 
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="1_1wob4"]
 [ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="2_2ct8r"]
+[ext_resource type="Script" uid="uid://00vlrniyevw2" path="res://scenes/stations/horizontal_station.gd" id="3_m0a8x"]
 [ext_resource type="Script" uid="uid://dajmbm00s3t75" path="res://scenes/stations/vertical_station.gd" id="4_61oe3"]
+[ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="4_m0a8x"]
 
-[sub_resource type="Gradient" id="Gradient_61oe3"]
+[sub_resource type="Gradient" id="Gradient_m0a8x"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b65lc"]
+gradient = SubResource("Gradient_m0a8x")
+width = 800
+height = 800
+
+[sub_resource type="Gradient" id="Gradient_b65lc"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m0a8x"]
-gradient = SubResource("Gradient_61oe3")
-width = 16
-height = 32
-fill_from = Vector2(0.022792, 0.951567)
+resource_local_to_scene = true
+gradient = SubResource("Gradient_b65lc")
+width = 8
+height = 16
+fill_from = Vector2(0.358974, 0.447293)
 fill_to = Vector2(0, 0.980057)
 
+[sub_resource type="Gradient" id="Gradient_1rmrp"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eda08"]
+gradient = SubResource("Gradient_1rmrp")
+width = 8
+height = 16
+
 [node name="StationTest" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(590, 27)
+texture = SubResource("GradientTexture2D_b65lc")
 
 [node name="Submarine" parent="." instance=ExtResource("1_1wob4")]
 position = Vector2(562, 149)
 
 [node name="Player" parent="Submarine" instance=ExtResource("2_2ct8r")]
-position = Vector2(-25, -31)
+position = Vector2(-31, 10)
 
-[node name="base_station" type="Node2D" parent="Submarine" node_paths=PackedStringArray("submarine")]
+[node name="horizontal_sub_controller2" type="Node2D" parent="Submarine" node_paths=PackedStringArray("submarine")]
+position = Vector2(83, 15)
+script = ExtResource("3_m0a8x")
+submarine = NodePath("..")
+
+[node name="visual" type="Node2D" parent="Submarine/horizontal_sub_controller2"]
+
+[node name="control" type="Sprite2D" parent="Submarine/horizontal_sub_controller2/visual"]
+texture = SubResource("GradientTexture2D_m0a8x")
+
+[node name="vertical_sub_controller" type="Node2D" parent="Submarine" node_paths=PackedStringArray("submarine")]
+position = Vector2(-65, -28)
 script = ExtResource("4_61oe3")
 submarine = NodePath("..")
 
-[node name="visual" type="Node2D" parent="Submarine/base_station"]
+[node name="visual" type="Node2D" parent="Submarine/vertical_sub_controller"]
 
-[node name="control" type="Sprite2D" parent="Submarine/base_station/visual"]
-position = Vector2(127, -64)
-texture = SubResource("GradientTexture2D_m0a8x")
+[node name="control" type="Sprite2D" parent="Submarine/vertical_sub_controller/visual"]
+texture = SubResource("GradientTexture2D_eda08")
+
+[node name="Camera2D" parent="Submarine" instance=ExtResource("4_m0a8x")]
