@@ -78,7 +78,7 @@ func set_water_level(level):
 
 func _on_health_health_changed(health_value: float) -> void:
 	print("Took damage, current health:", health_value)
-	set_water_level(1.0 - float(health_value)/100.0)
+	set_water_level(1.0 - float(health_value)/health.max_health)
 
 
 func _on_health_health_depleted() -> void:

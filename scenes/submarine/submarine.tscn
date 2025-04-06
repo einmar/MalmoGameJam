@@ -7784,6 +7784,7 @@ tile_map_data = PackedByteArray("AADZ//f/AQAVAB0AAADa//f/AQAVAB0AAADb//f/AQAVAB0
 tile_set = SubResource("TileSet_efdjn")
 
 [node name="Health" parent="." instance=ExtResource("4_tnxgy")]
+max_health = 400.0
 
 [node name="SubmarineFrame" type="Sprite2D" parent="."]
 z_index = 2
