@@ -17,7 +17,4 @@ func _on_body_entered(body: Node) -> void:
 	if body is BasicEnemy:
 		body.health.take_damage(damage)  # Deal damage to the enemy
 		queue_free()  # Remove the bullet after hitting an enemy
-	else:
-		queue_free()  # Remove the bullet if it hits anything else
-
-	visible = false
+		visible = false
