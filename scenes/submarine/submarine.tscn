@@ -7821,8 +7821,8 @@ shape = SubResource("RectangleShape2D_qooq6")
 
 [node name="AmbientPointLight2D" type="PointLight2D" parent="ambient_lights"]
 scale = Vector2(0.95, 0.4)
-color = Color(0.286821, 0.257459, 0.656062, 1)
-energy = 0.7
+color = Color(0.330606, 0.302643, 0.733524, 1)
+energy = 3.0
 texture = ExtResource("3_myfyj")
 
 [node name="Sprite2D" type="Sprite2D" parent="ambient_lights"]

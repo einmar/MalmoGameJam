@@ -2,7 +2,7 @@ extends BaseStation
 
 @export var _lights: Array[Light] = []
 @export var light_energy_on: float = 4.0
-@export var light_energy_off: float = 1.0
+@export var light_energy_off: float = 0.5
 
 var _light_rotation_speed: float = 180.0 # degrees per second
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bu5s50qgjdjag"]
+[gd_scene load_steps=27 format=4 uid="uid://bu5s50qgjdjag"]
 
 [ext_resource type="PackedScene" uid="uid://ciru2i22sdqm0" path="res://scenes/world_environment/world_environment.tscn" id="1_1q7iv"]
 [ext_resource type="Texture2D" uid="uid://bjjwwelfviht5" path="res://art/spritesheets_env/spritesheet_water_walls.png" id="1_jauas"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://co01quiavx3pe" path="res://scenes/turrets/light.gd" id="5_34hum"]
 [ext_resource type="Texture2D" uid="uid://bihy8tmv4t5r5" path="res://art/spritesheet_vechicles/light.png" id="6_vhkxn"]
 [ext_resource type="Script" uid="uid://bnmb4aswl41qd" path="res://scenes/stations/gun_station.gd" id="7_1q7iv"]
+[ext_resource type="Script" path="res://scenes/stations/pump_station.gd" id="7_gj3kh"]
 [ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://scenes/turrets/gun.gd" id="8_gj3kh"]
 [ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://scenes/turrets/bullet.tscn" id="9_myogd"]
 [ext_resource type="Script" path="res://scenes/stations/horizontal_station.gd" id="11_vhkxn"]
@@ -292,14 +293,33 @@ player_index = 4
 
 [node name="Stations" type="Node2D" parent="Submarine"]
 
-[node name="light_station" type="Node2D" parent="Submarine/Stations" node_paths=PackedStringArray("_lights")]
+[node name="light_station_left" type="Node2D" parent="Submarine/Stations" node_paths=PackedStringArray("_lights")]
 position = Vector2(-98, 6)
 script = ExtResource("4_p6rmu")
-_lights = [NodePath("../light_left"), NodePath("../light_lower")]
+_lights = [NodePath("../light_left"), NodePath("../light_lower_left"), NodePath("../light_lower_middle"), NodePath("../light_lower_right")]
 
-[node name="visual" type="Node2D" parent="Submarine/Stations/light_station"]
+[node name="visual" type="Node2D" parent="Submarine/Stations/light_station_left"]
 
-[node name="control" type="Sprite2D" parent="Submarine/Stations/light_station/visual"]
+[node name="control" type="Sprite2D" parent="Submarine/Stations/light_station_left/visual"]
+texture = SubResource("GradientTexture2D_s4l03")
+
+[node name="pump_station" type="Node2D" parent="Submarine/Stations"]
+position = Vector2(4, 38)
+script = ExtResource("7_gj3kh")
+
+[node name="visual" type="Node2D" parent="Submarine/Stations/pump_station"]
+
+[node name="control" type="Sprite2D" parent="Submarine/Stations/pump_station/visual"]
+texture = SubResource("GradientTexture2D_s4l03")
+
+[node name="light_station_right" type="Node2D" parent="Submarine/Stations" node_paths=PackedStringArray("_lights")]
+position = Vector2(69, 6)
+script = ExtResource("4_p6rmu")
+_lights = [NodePath("../light_right"), NodePath("../light_upper_right"), NodePath("../light_upper_middle"), NodePath("../light_upper_left")]
+
+[node name="visual" type="Node2D" parent="Submarine/Stations/light_station_right"]
+
+[node name="control" type="Sprite2D" parent="Submarine/Stations/light_station_right/visual"]
 texture = SubResource("GradientTexture2D_s4l03")
 
 [node name="light_left" type="Node2D" parent="Submarine/Stations"]
@@ -320,17 +340,125 @@ energy = 5.0
 texture = ExtResource("6_vhkxn")
 texture_scale = 0.5
 
-[node name="light_lower" type="Node2D" parent="Submarine/Stations"]
+[node name="light_lower_left" type="Node2D" parent="Submarine/Stations"]
+position = Vector2(-90, 48)
+script = ExtResource("5_34hum")
+
+[node name="visual" type="Node2D" parent="Submarine/Stations/light_lower_left"]
+position = Vector2(3.0598e-07, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_lower_left/visual"]
+texture = SubResource("PlaceholderTexture2D_ypncs")
+
+[node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_lower_left/visual"]
+position = Vector2(0.00039132, 99)
+color = Color(1, 0.729412, 0.380392, 1)
+energy = 5.0
+texture = ExtResource("6_vhkxn")
+texture_scale = 0.5
+
+[node name="light_lower_middle" type="Node2D" parent="Submarine/Stations"]
+visible = false
 position = Vector2(-4, 48)
 script = ExtResource("5_34hum")
 
-[node name="visual" type="Node2D" parent="Submarine/Stations/light_lower"]
+[node name="visual" type="Node2D" parent="Submarine/Stations/light_lower_middle"]
 position = Vector2(3.0598e-07, 7)
 
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_lower/visual"]
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_lower_middle/visual"]
 texture = SubResource("PlaceholderTexture2D_ypncs")
 
-[node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_lower/visual"]
+[node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_lower_middle/visual"]
+position = Vector2(0.00039132, 99)
+color = Color(1, 0.729412, 0.380392, 1)
+energy = 5.0
+texture = ExtResource("6_vhkxn")
+texture_scale = 0.5
+
+[node name="light_lower_right" type="Node2D" parent="Submarine/Stations"]
+position = Vector2(80, 48)
+script = ExtResource("5_34hum")
+
+[node name="visual" type="Node2D" parent="Submarine/Stations/light_lower_right"]
+position = Vector2(3.0598e-07, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_lower_right/visual"]
+texture = SubResource("PlaceholderTexture2D_ypncs")
+
+[node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_lower_right/visual"]
+position = Vector2(0.00039132, 99)
+color = Color(1, 0.729412, 0.380392, 1)
+energy = 5.0
+texture = ExtResource("6_vhkxn")
+texture_scale = 0.5
+
+[node name="light_right" type="Node2D" parent="Submarine/Stations"]
+position = Vector2(119, 0)
+rotation = -1.5708
+script = ExtResource("5_34hum")
+
+[node name="visual" type="Node2D" parent="Submarine/Stations/light_right"]
+position = Vector2(3.0598e-07, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_right/visual"]
+texture = SubResource("PlaceholderTexture2D_ypncs")
+
+[node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_right/visual"]
+position = Vector2(0.00039132, 99)
+color = Color(1, 0.729412, 0.380392, 1)
+energy = 5.0
+texture = ExtResource("6_vhkxn")
+texture_scale = 0.5
+
+[node name="light_upper_left" type="Node2D" parent="Submarine/Stations"]
+position = Vector2(-90, -49)
+rotation = 3.14159
+script = ExtResource("5_34hum")
+
+[node name="visual" type="Node2D" parent="Submarine/Stations/light_upper_left"]
+position = Vector2(3.0598e-07, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_upper_left/visual"]
+texture = SubResource("PlaceholderTexture2D_ypncs")
+
+[node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_upper_left/visual"]
+position = Vector2(0.00039132, 99)
+color = Color(1, 0.729412, 0.380392, 1)
+energy = 5.0
+texture = ExtResource("6_vhkxn")
+texture_scale = 0.5
+
+[node name="light_upper_middle" type="Node2D" parent="Submarine/Stations"]
+visible = false
+position = Vector2(-4, 48)
+rotation = 3.14159
+script = ExtResource("5_34hum")
+
+[node name="visual" type="Node2D" parent="Submarine/Stations/light_upper_middle"]
+position = Vector2(3.0598e-07, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_upper_middle/visual"]
+texture = SubResource("PlaceholderTexture2D_ypncs")
+
+[node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_upper_middle/visual"]
+position = Vector2(0.00039132, 99)
+color = Color(1, 0.729412, 0.380392, 1)
+energy = 5.0
+texture = ExtResource("6_vhkxn")
+texture_scale = 0.5
+
+[node name="light_upper_right" type="Node2D" parent="Submarine/Stations"]
+position = Vector2(80, -49)
+rotation = 3.14159
+script = ExtResource("5_34hum")
+
+[node name="visual" type="Node2D" parent="Submarine/Stations/light_upper_right"]
+position = Vector2(3.0598e-07, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_upper_right/visual"]
+texture = SubResource("PlaceholderTexture2D_ypncs")
+
+[node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_upper_right/visual"]
 position = Vector2(0.00039132, 99)
 color = Color(1, 0.729412, 0.380392, 1)
 energy = 5.0
@@ -345,6 +473,16 @@ _guns = [NodePath("../gun_lower_left"), NodePath("../gun_lower_right"), NodePath
 [node name="visual" type="Node2D" parent="Submarine/Stations/gun_station_lower"]
 
 [node name="control" type="Sprite2D" parent="Submarine/Stations/gun_station_lower/visual"]
+texture = SubResource("GradientTexture2D_0qejo")
+
+[node name="gun_station_upper" type="Node2D" parent="Submarine/Stations" node_paths=PackedStringArray("_guns")]
+position = Vector2(48, 38)
+script = ExtResource("7_1q7iv")
+_guns = [NodePath("../gun_upper_left"), NodePath("../gun_right_upper"), NodePath("../gun_upper_right")]
+
+[node name="visual" type="Node2D" parent="Submarine/Stations/gun_station_upper"]
+
+[node name="control" type="Sprite2D" parent="Submarine/Stations/gun_station_upper/visual"]
 texture = SubResource("GradientTexture2D_0qejo")
 
 [node name="gun_lower_left" type="Node2D" parent="Submarine/Stations"]
@@ -363,7 +501,7 @@ position = Vector2(0, 16)
 rotation = -0.82355
 
 [node name="gun_left_lower" type="Node2D" parent="Submarine/Stations"]
-position = Vector2(-114, 25)
+position = Vector2(-113, 29)
 rotation = 0.785398
 script = ExtResource("8_gj3kh")
 bullet_prefab = ExtResource("9_myogd")
@@ -390,6 +528,54 @@ position = Vector2(0, 8)
 texture = SubResource("PlaceholderTexture2D_erlbe")
 
 [node name="exit" type="Node2D" parent="Submarine/Stations/gun_lower_right"]
+position = Vector2(0, 16)
+rotation = -0.82355
+
+[node name="gun_upper_left" type="Node2D" parent="Submarine/Stations"]
+position = Vector2(-71, -49)
+rotation = 3.14159
+script = ExtResource("8_gj3kh")
+bullet_prefab = ExtResource("9_myogd")
+
+[node name="visual" type="Node2D" parent="Submarine/Stations/gun_upper_left"]
+position = Vector2(0, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/gun_upper_left/visual"]
+texture = SubResource("PlaceholderTexture2D_erlbe")
+
+[node name="exit" type="Node2D" parent="Submarine/Stations/gun_upper_left"]
+position = Vector2(0, 16)
+rotation = -0.82355
+
+[node name="gun_right_upper" type="Node2D" parent="Submarine/Stations"]
+position = Vector2(106, -37)
+rotation = -2.35619
+script = ExtResource("8_gj3kh")
+bullet_prefab = ExtResource("9_myogd")
+
+[node name="visual" type="Node2D" parent="Submarine/Stations/gun_right_upper"]
+position = Vector2(0, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/gun_right_upper/visual"]
+texture = SubResource("PlaceholderTexture2D_erlbe")
+
+[node name="exit" type="Node2D" parent="Submarine/Stations/gun_right_upper"]
+position = Vector2(0, 16)
+rotation = -0.82355
+
+[node name="gun_upper_right" type="Node2D" parent="Submarine/Stations"]
+position = Vector2(63, -49)
+rotation = 3.14159
+script = ExtResource("8_gj3kh")
+bullet_prefab = ExtResource("9_myogd")
+
+[node name="visual" type="Node2D" parent="Submarine/Stations/gun_upper_right"]
+position = Vector2(0, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/gun_upper_right/visual"]
+texture = SubResource("PlaceholderTexture2D_erlbe")
+
+[node name="exit" type="Node2D" parent="Submarine/Stations/gun_upper_right"]
 position = Vector2(0, 16)
 rotation = -0.82355
 
