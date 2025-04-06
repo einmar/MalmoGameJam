@@ -2,6 +2,7 @@ extends Node
 
 var references = {}
 var player: Player
+var players: Array[Player] = []
 var submarine: Submarine
 var main_camera: Camera2D
 var scene_root_node: Node2D
@@ -33,7 +34,10 @@ func level_setup() -> void:
 	exit_map_node.level_won.connect(level_won)
 	submarine.game_over.connect(game_over)
 
-
+	for node in scene_root_node.find_children("Player*", "", true):
+		if node is Player:
+			players.append(node)
+		
 ############ Level Logic ############
 
 func level_won():
