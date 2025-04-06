@@ -5,6 +5,7 @@ var player: Player
 var submarine: Submarine
 var main_camera: Camera2D
 var scene_root_node: Node2D
+var game_state_label: Label
 var enemy_spawn_timer: Timer
 var current_depth_resource: DepthResource
 
@@ -22,8 +23,29 @@ func level_setup() -> void:
 	scene_root_node.add_child(enemy_spawn_timer)
 	enemy_spawn_timer.timeout.connect(spawn_enemy)
 	enemy_spawn_timer.start(current_depth_resource.enemy_spawn_cooldown)
-	#exit_map.connect("level_won",self,"level_won")
+	var exit_map_node: Area2D = scene_root_node.find_child("exit_map")
+	game_state_label = scene_root_node.find_child("game_state_label")
+	exit_map_node.level_won.connect(level_won)
+	submarine.game_over.connect(game_over)
 
+
+############ Level Logic ############
+
+func level_won():
+	Engine.time_scale = 0
+	game_state_label.text = "GJ my dudes"
+	await get_tree().create_timer(5).timeout
+	get_tree().reload_current_scene()
+	game_state_label.text = ""
+	Engine.time_scale = 1
+
+func game_over():
+	Engine.time_scale = 0
+	game_state_label.text = "Submarine sunk, GAME OVER"
+	await get_tree().create_timer(5).timeout
+	get_tree().reload_current_scene()
+	game_state_label.text = ""
+	Engine.time_scale = 1
 
 ############ Enemy Logic ############
 

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 class_name Submarine
 
+signal game_over
 signal water_level_changed(water_level: float)
 
 @export var max_vertical_speed: float = 100.0
@@ -81,4 +82,4 @@ func _on_health_health_changed(health_value: float) -> void:
 
 
 func _on_health_health_depleted() -> void:
-	print("Submarine sunk, GAME OVER")
+	game_over.emit()

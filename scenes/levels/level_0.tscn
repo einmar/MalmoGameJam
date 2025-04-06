@@ -3,14 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://ciru2i22sdqm0" path="res://scenes/world_environment/world_environment.tscn" id="1_1q7iv"]
 [ext_resource type="Texture2D" uid="uid://bjjwwelfviht5" path="res://art/spritesheets_env/spritesheet_water_walls.png" id="1_jauas"]
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="2_bw3rj"]
-[ext_resource type="Script" path="res://scenes/levels/exit_map.gd" id="2_s4l03"]
+[ext_resource type="Script" uid="uid://clbactge4qegt" path="res://scenes/levels/exit_map.gd" id="2_s4l03"]
 [ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="3_65guy"]
 [ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="3_p6rmu"]
-[ext_resource type="Script" path="res://scenes/stations/light_station.gd" id="4_p6rmu"]
+[ext_resource type="Script" uid="uid://beudspcqn6na" path="res://scenes/stations/light_station.gd" id="4_p6rmu"]
 [ext_resource type="Script" uid="uid://co01quiavx3pe" path="res://scenes/turrets/light.gd" id="5_34hum"]
 [ext_resource type="Texture2D" uid="uid://bihy8tmv4t5r5" path="res://art/spritesheet_vechicles/light.png" id="6_vhkxn"]
 [ext_resource type="Script" uid="uid://bnmb4aswl41qd" path="res://scenes/stations/gun_station.gd" id="7_1q7iv"]
-[ext_resource type="Script" uid="uid://bdphab1745cjv" path="res://scenes/stations/pump_station.gd" id="7_gj3kh"]
+[ext_resource type="Script" path="res://scenes/stations/pump_station.gd" id="7_gj3kh"]
 [ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://scenes/turrets/gun.gd" id="8_gj3kh"]
 [ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://scenes/turrets/bullet.tscn" id="9_myogd"]
 [ext_resource type="Texture2D" uid="uid://b4p2ailc8qbn0" path="res://art/spritesheet_vechicles/spritesheet_tank.png" id="10_s4l03"]
@@ -269,6 +269,7 @@ fill_to = Vector2(0, 0.980057)
 [node name="Level0" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0233665, 0.040861, 0.0915442, 1)
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_1q7iv")]
@@ -309,6 +310,10 @@ tile_set = SubResource("TileSet_svowb")
 
 [node name="Submarine" parent="." instance=ExtResource("2_bw3rj")]
 position = Vector2(1317, -549)
+
+[node name="game_state_label" type="Label" parent="Submarine"]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="Camera2D" parent="Submarine" instance=ExtResource("3_p6rmu")]
 
