@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://byrob4f6c5aw" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bqpcsrt68abmp" path="res://art/spritesheets_characters/spritesheet_playablecharacter_1.png" id="2_dovo2"]
-[ext_resource type="SpriteFrames" uid="uid://b1ptagkke53ba" path="res://scenes/player/player1_sprite_frames.tres" id="3_gmlin"]
+[ext_resource type="SpriteFrames" uid="uid://dn1v2n256n2qe" path="res://scenes/player/player1_sprite_frames.tres" id="3_gmlin"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
-radius = 4.0
-height = 14.0
+radius = 3.0
+height = 12.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
 atlas = ExtResource("2_dovo2")
@@ -20,7 +20,7 @@ script = ExtResource("1_dovo2")
 sprite_animated = NodePath("PlayerAnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_dovo2")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]

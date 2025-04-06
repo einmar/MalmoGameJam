@@ -7756,7 +7756,7 @@ size = Vector2(120, 270)
 blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_roe7p"]
-size = Vector2(14, 10.5)
+size = Vector2(11, 10.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_641nr"]
 size = Vector2(14, 10.5)
@@ -7921,6 +7921,11 @@ collision_mask = 2
 
 [node name="Box" type="CollisionShape2D" parent="Platforms"]
 position = Vector2(-85, 9.25)
+shape = SubResource("RectangleShape2D_roe7p")
+one_way_collision = true
+
+[node name="Box3" type="CollisionShape2D" parent="Platforms"]
+position = Vector2(93.5, 31)
 shape = SubResource("RectangleShape2D_roe7p")
 one_way_collision = true
 
