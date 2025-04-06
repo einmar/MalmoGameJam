@@ -1,28 +1,33 @@
-[gd_scene load_steps=44 format=4 uid="uid://bu5s50qgjdjag"]
+[gd_scene load_steps=47 format=4 uid="uid://bu5s50qgjdjag"]
 
-[ext_resource type="PackedScene" uid="uid://ciru2i22sdqm0" path="res://Scenes/world_environment/world_environment.tscn" id="1_1q7iv"]
+[ext_resource type="PackedScene" uid="uid://ciru2i22sdqm0" path="res://scenes/world_environment/world_environment.tscn" id="1_1q7iv"]
 [ext_resource type="Texture2D" uid="uid://bjjwwelfviht5" path="res://art/spritesheets_env/spritesheet_water_walls.png" id="1_jauas"]
-[ext_resource type="PackedScene" path="res://scenes/levels/level_initializer.tscn" id="1_xpoxe"]
-[ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://Scenes/submarine/submarine.tscn" id="2_bw3rj"]
-[ext_resource type="Script" uid="uid://clbactge4qegt" path="res://Scenes/levels/exit_map.gd" id="2_s4l03"]
-[ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://Scenes/player/player.tscn" id="3_65guy"]
-[ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://Scenes/camera/camera.tscn" id="3_p6rmu"]
-[ext_resource type="Script" uid="uid://beudspcqn6na" path="res://Scenes/stations/light_station.gd" id="4_p6rmu"]
-[ext_resource type="Script" uid="uid://co01quiavx3pe" path="res://Scenes/turrets/light.gd" id="5_34hum"]
+[ext_resource type="PackedScene" uid="uid://cn52pfw3lvub4" path="res://scenes/levels/level_initializer.tscn" id="1_xpoxe"]
+[ext_resource type="PackedScene" uid="uid://b6ivlsk6h6sj5" path="res://scenes/levels/depth_changer.tscn" id="2_4mw86"]
+[ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="2_bw3rj"]
+[ext_resource type="Script" uid="uid://clbactge4qegt" path="res://scenes/levels/exit_map.gd" id="2_s4l03"]
+[ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="3_65guy"]
+[ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="3_p6rmu"]
+[ext_resource type="Resource" uid="uid://e8glcrjlsrtt" path="res://resources/1_depth.tres" id="3_ubciw"]
+[ext_resource type="Script" uid="uid://beudspcqn6na" path="res://scenes/stations/light_station.gd" id="4_p6rmu"]
+[ext_resource type="Script" uid="uid://co01quiavx3pe" path="res://scenes/turrets/light.gd" id="5_34hum"]
 [ext_resource type="Texture2D" uid="uid://bihy8tmv4t5r5" path="res://art/spritesheet_vechicles/light.png" id="6_vhkxn"]
-[ext_resource type="Script" uid="uid://bnmb4aswl41qd" path="res://Scenes/stations/gun_station.gd" id="7_1q7iv"]
-[ext_resource type="Script" uid="uid://bdphab1745cjv" path="res://Scenes/stations/pump_station.gd" id="7_gj3kh"]
-[ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://Scenes/turrets/gun.gd" id="8_gj3kh"]
-[ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://Scenes/turrets/bullet.tscn" id="9_myogd"]
+[ext_resource type="Script" uid="uid://bnmb4aswl41qd" path="res://scenes/stations/gun_station.gd" id="7_1q7iv"]
+[ext_resource type="Script" uid="uid://bdphab1745cjv" path="res://scenes/stations/pump_station.gd" id="7_gj3kh"]
+[ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://scenes/turrets/gun.gd" id="8_gj3kh"]
+[ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://scenes/turrets/bullet.tscn" id="9_myogd"]
 [ext_resource type="Texture2D" uid="uid://b4p2ailc8qbn0" path="res://art/spritesheet_vechicles/spritesheet_tank.png" id="10_s4l03"]
-[ext_resource type="Script" uid="uid://00vlrniyevw2" path="res://Scenes/stations/horizontal_station.gd" id="11_vhkxn"]
-[ext_resource type="Script" uid="uid://dajmbm00s3t75" path="res://Scenes/stations/vertical_station.gd" id="12_1q7iv"]
+[ext_resource type="Script" uid="uid://00vlrniyevw2" path="res://scenes/stations/horizontal_station.gd" id="11_vhkxn"]
+[ext_resource type="Script" uid="uid://dajmbm00s3t75" path="res://scenes/stations/vertical_station.gd" id="12_1q7iv"]
 [ext_resource type="Texture2D" uid="uid://cje4ef3ev2dfw" path="res://art/spritesheet_vechicles/spritesheet_gun.png" id="13_myogd"]
 [ext_resource type="Texture2D" uid="uid://b0tkrvs00y7gc" path="res://art/spritesheet_vechicles/spritesheet_machines.png" id="16_ypncs"]
 [ext_resource type="AudioStream" uid="uid://cwgydmbf10y3x" path="res://sound/underwater-cavern-159985.mp3" id="19_8cy76"]
 [ext_resource type="AudioStream" uid="uid://i6yigkxn1ucp" path="res://sound/underwater-ambiencewav-14428.mp3" id="20_wkocg"]
 [ext_resource type="AudioStream" uid="uid://c6idj8raijh35" path="res://sound/engine sound-71102.mp3" id="21_5frlb"]
 [ext_resource type="AudioStream" uid="uid://bhlaxxrqsybfj" path="res://sound/spaceship-abandoned-ambience-53790.mp3" id="22_hdw5t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubciw"]
+size = Vector2(2000, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gj3kh"]
 size = Vector2(400, 1000)
@@ -303,7 +308,16 @@ region = Rect2(74, 20, 16, 28)
 
 [node name="level_initializer" parent="." instance=ExtResource("1_xpoxe")]
 
+[node name="DepthChanger" parent="." instance=ExtResource("2_4mw86")]
+position = Vector2(3537, 2801)
+new_depth_resource = ExtResource("3_ubciw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthChanger"]
+position = Vector2(58, 0)
+shape = SubResource("RectangleShape2D_ubciw")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.0116055, 0.0203073, 0.0545293, 1)
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_1q7iv")]

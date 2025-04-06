@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6ivlsk6h6sj5"]
+
+[ext_resource type="Script" uid="uid://dte0l0iledm2g" path="res://scenes/levels/depth_changer.gd" id="1_515pf"]
+
+[node name="DepthChanger" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_515pf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
