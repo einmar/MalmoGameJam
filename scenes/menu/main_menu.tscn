@@ -43,6 +43,7 @@ offset_bottom = 74.0
 text = "Move ->"
 
 [node name="JumpLabel" type="Label" parent="Controller"]
+layout_mode = 0
 offset_left = 699.0
 offset_top = 71.0
 offset_right = 763.0
@@ -50,6 +51,7 @@ offset_bottom = 97.0
 text = "<-Jump"
 
 [node name="UseLabel" type="Label" parent="Controller"]
+layout_mode = 0
 offset_left = 626.0
 offset_top = 57.0
 offset_right = 675.0
@@ -57,6 +59,7 @@ offset_bottom = 83.0
 text = "Use->"
 
 [node name="FireActionLabel" type="Label" parent="Controller"]
+layout_mode = 0
 offset_left = 710.0
 offset_top = 22.0
 offset_right = 809.0
