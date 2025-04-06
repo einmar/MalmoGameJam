@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bu5s50qgjdjag"]
+[gd_scene load_steps=43 format=4 uid="uid://bu5s50qgjdjag"]
 
 [ext_resource type="PackedScene" uid="uid://ciru2i22sdqm0" path="res://Scenes/world_environment/world_environment.tscn" id="1_1q7iv"]
 [ext_resource type="Texture2D" uid="uid://bjjwwelfviht5" path="res://art/spritesheets_env/spritesheet_water_walls.png" id="1_jauas"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://cwgydmbf10y3x" path="res://sound/underwater-cavern-159985.mp3" id="19_8cy76"]
 [ext_resource type="AudioStream" uid="uid://i6yigkxn1ucp" path="res://sound/underwater-ambiencewav-14428.mp3" id="20_wkocg"]
 [ext_resource type="AudioStream" uid="uid://c6idj8raijh35" path="res://sound/engine sound-71102.mp3" id="21_5frlb"]
+[ext_resource type="AudioStream" uid="uid://bhlaxxrqsybfj" path="res://sound/spaceship-abandoned-ambience-53790.mp3" id="22_hdw5t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gj3kh"]
 size = Vector2(400, 1000)
@@ -832,6 +833,10 @@ autoplay = true
 [node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_5frlb")
 volume_db = -10.0
+autoplay = true
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_hdw5t")
 autoplay = true
 
 [connection signal="body_entered" from="exit_map" to="exit_map" method="_on_body_entered"]
