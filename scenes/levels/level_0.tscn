@@ -435,6 +435,7 @@ position = Vector2(2.02815e-05, -8)
 texture = SubResource("AtlasTexture_ypncs")
 
 [node name="light_lower_middle" type="Node2D" parent="Submarine/Stations"]
+visible = false
 position = Vector2(-4, 48)
 script = ExtResource("5_34hum")
 
@@ -530,7 +531,7 @@ texture = SubResource("AtlasTexture_ypncs")
 
 [node name="light_upper_middle" type="Node2D" parent="Submarine/Stations"]
 visible = false
-position = Vector2(-4, 48)
+position = Vector2(-4, -49)
 rotation = 3.14159
 script = ExtResource("5_34hum")
 

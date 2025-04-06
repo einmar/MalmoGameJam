@@ -41,24 +41,12 @@ func level_won():
 	canvas_modulate.hide()
 	game_state_label.show()
 	game_state_label.text = "GJ my dudes"
-	await get_tree().create_timer(5).timeout
-	get_tree().reload_current_scene()
-	game_state_label.text = ""
-	game_state_label.hide()
-	canvas_modulate.show()
-	Engine.time_scale = 1
 
 func game_over():
 	Engine.time_scale = 0
 	canvas_modulate.hide()
 	game_state_label.show()
 	game_state_label.text = "Submarine sunk\nGAME OVER"
-	await get_tree().create_timer(5).timeout
-	get_tree().reload_current_scene()
-	game_state_label.text = ""
-	game_state_label.hide()
-	canvas_modulate.show()
-	Engine.time_scale = 1
 
 ############ Enemy Logic ############
 
