@@ -7,6 +7,7 @@ var main_camera: Camera2D
 var scene_root_node: Node2D
 var game_state_label: Label
 var enemy_spawn_timer: Timer
+var canvas_modulate: CanvasModulate
 var current_depth_resource: DepthResource
 
 var spawn_offset = 10
@@ -25,6 +26,7 @@ func level_setup() -> void:
 	enemy_spawn_timer.start(current_depth_resource.enemy_spawn_cooldown)
 	var exit_map_node: Area2D = scene_root_node.find_child("exit_map")
 	game_state_label = scene_root_node.find_child("game_state_label")
+	canvas_modulate = scene_root_node.find_child("CanvasModulate")
 	exit_map_node.level_won.connect(level_won)
 	submarine.game_over.connect(game_over)
 
@@ -33,18 +35,26 @@ func level_setup() -> void:
 
 func level_won():
 	Engine.time_scale = 0
+	canvas_modulate.hide()
+	game_state_label.show()
 	game_state_label.text = "GJ my dudes"
 	await get_tree().create_timer(5).timeout
 	get_tree().reload_current_scene()
 	game_state_label.text = ""
+	game_state_label.hide()
+	canvas_modulate.show()
 	Engine.time_scale = 1
 
 func game_over():
 	Engine.time_scale = 0
-	game_state_label.text = "Submarine sunk, GAME OVER"
+	canvas_modulate.hide()
+	game_state_label.show()
+	game_state_label.text = "Submarine sunk\nGAME OVER"
 	await get_tree().create_timer(5).timeout
 	get_tree().reload_current_scene()
 	game_state_label.text = ""
+	game_state_label.hide()
+	canvas_modulate.show()
 	Engine.time_scale = 1
 
 ############ Enemy Logic ############

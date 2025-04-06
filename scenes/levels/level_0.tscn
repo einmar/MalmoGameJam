@@ -269,7 +269,6 @@ fill_to = Vector2(0, 0.980057)
 [node name="Level0" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0233665, 0.040861, 0.0915442, 1)
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_1q7iv")]
@@ -312,8 +311,33 @@ tile_set = SubResource("TileSet_svowb")
 position = Vector2(1317, -549)
 
 [node name="game_state_label" type="Label" parent="Submarine"]
-offset_right = 40.0
-offset_bottom = 23.0
+visible = false
+z_index = 20
+custom_minimum_size = Vector2(2000, 1000)
+offset_left = -1000.0
+offset_top = -500.0
+offset_right = 1000.0
+offset_bottom = 500.0
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Submarine/game_state_label"]
+z_index = -1
+custom_minimum_size = Vector2(2000, 1000)
+layout_mode = 0
+offset_right = 2000.0
+offset_bottom = 1000.0
+color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="Button" type="Button" parent="Submarine/game_state_label"]
+layout_mode = 0
+offset_left = 900.0
+offset_top = 600.0
+offset_right = 1100.0
+offset_bottom = 700.0
+theme_override_font_sizes/font_size = 40
+text = "RESTART"
 
 [node name="Camera2D" parent="Submarine" instance=ExtResource("3_p6rmu")]
 
@@ -713,3 +737,4 @@ hframes = 4
 vframes = 6
 
 [connection signal="body_entered" from="exit_map" to="exit_map" method="_on_body_entered"]
+[connection signal="pressed" from="Submarine/game_state_label/Button" to="exit_map" method="_on_button_pressed"]
