@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bihy8tmv4t5r5" path="res://art/spritesheet_vechicles/light.png" id="9_roe7p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tnxgy"]
-radius = 48.0
-height = 240.0
+radius = 53.95
+height = 255.28
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_77ovh"]
 texture = ExtResource("1_oatge")
