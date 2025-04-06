@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnyhulya1c3wi"]
+
+[ext_resource type="Script" uid="uid://cvdcw0x7x1ivp" path="res://scenes/menu/main_menu.gd" id="1_kiqgm"]
+[ext_resource type="Texture2D" uid="uid://6qrmyq854g2n" path="res://art/menu/controller.png" id="1_nl8w3"]
+[ext_resource type="Texture2D" uid="uid://dl1m6fanooxmf" path="res://art/spritesheet_vechicles/submarine_background.png" id="2_247la"]
+[ext_resource type="PackedScene" uid="uid://s2yb75setg2x" path="res://scenes/sandbox/station_test.tscn" id="2_hj162"]
+[ext_resource type="Texture2D" uid="uid://c5rl3md7ylqan" path="res://art/spritesheet_vechicles/submarine_frame.png" id="3_kiqgm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hj162"]
+font_size = 64
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kiqgm")
+level_scene = ExtResource("2_hj162")
+
+[node name="Controller" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -25.0
+offset_top = -14.0
+offset_right = 15.0
+offset_bottom = 26.0
+
+[node name="TextureRect" type="TextureRect" parent="Controller"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = -2.0
+offset_right = 747.0
+offset_bottom = 216.0
+texture = ExtResource("1_nl8w3")
+
+[node name="MoveLabel" type="Label" parent="Controller"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 51.0
+offset_right = 565.0
+offset_bottom = 74.0
+text = "Move ->"
+
+[node name="JumpLabel" type="Label" parent="Controller"]
+offset_left = 699.0
+offset_top = 71.0
+offset_right = 763.0
+offset_bottom = 97.0
+text = "<-Jump"
+
+[node name="UseLabel" type="Label" parent="Controller"]
+offset_left = 626.0
+offset_top = 57.0
+offset_right = 675.0
+offset_bottom = 83.0
+text = "Use->"
+
+[node name="FireActionLabel" type="Label" parent="Controller"]
+offset_left = 710.0
+offset_top = 22.0
+offset_right = 809.0
+offset_bottom = 48.0
+text = "<-Fire/Action"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 141.0
+offset_right = 357.0
+offset_bottom = 172.0
+text = "START"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 29.0
+offset_right = 407.0
+offset_bottom = 117.0
+text = "THE TITLE"
+label_settings = SubResource("LabelSettings_hj162")
+horizontal_alignment = 1
+
+[node name="SubmarineBackground" type="Sprite2D" parent="."]
+position = Vector2(414, 312)
+texture = ExtResource("2_247la")
+
+[node name="SubmarineFrame" type="Sprite2D" parent="."]
+position = Vector2(414, 312)
+texture = ExtResource("3_kiqgm")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

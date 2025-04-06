@@ -15,6 +15,9 @@ var spawn_spacing = 50
 ############ Initialize ############
 func _ready() -> void:
 	current_depth_resource = load("res://resources/0_depth.tres")
+	# Don't run level setup from menu scene.
+	if  get_tree().current_scene is Control:
+		return
 	call_deferred("level_setup")
 
 func level_setup() -> void:
