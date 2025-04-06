@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0tkrvs00y7gc"
-path="res://.godot/imported/spritesheet_machines.png-7db477c7ac4014f09a6dfa8b4d0995d5.ctex"
+uid="uid://cr0cb2d5bj7sq"
+path="res://.godot/imported/MainCharacter_2.png-cdcac664267591a55d8631a6c4004c2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/spritesheet_vechicles/spritesheet_machines.png"
-dest_files=["res://.godot/imported/spritesheet_machines.png-7db477c7ac4014f09a6dfa8b4d0995d5.ctex"]
+source_file="res://art/spritesheets_characters/MainCharacter_2.png"
+dest_files=["res://.godot/imported/MainCharacter_2.png-cdcac664267591a55d8631a6c4004c2c.ctex"]
 
 [params]
 

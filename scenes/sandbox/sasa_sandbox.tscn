@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://jlm4ay5ndld7" path="res://scenes/enemies/basic_enemy/basic_enemy.tscn" id="1_kl553"]
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="2_8pjya"]
 [ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="4_c1mo7"]
-[ext_resource type="Script" uid="uid://beudspcqn6na" path="res://scenes/stations/light_station.gd" id="5_0ledb"]
+[ext_resource type="Script" path="res://scenes/stations/light_station.gd" id="5_0ledb"]
 [ext_resource type="Script" uid="uid://co01quiavx3pe" path="res://scenes/turrets/light.gd" id="6_xxmhc"]
 [ext_resource type="Texture2D" uid="uid://bihy8tmv4t5r5" path="res://art/spritesheet_vechicles/light.png" id="7_xxmhc"]
 [ext_resource type="Script" uid="uid://bnmb4aswl41qd" path="res://scenes/stations/gun_station.gd" id="8_3jbro"]
