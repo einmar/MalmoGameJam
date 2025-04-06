@@ -300,8 +300,7 @@ region = Rect2(74, 20, 16, 28)
 [node name="Level0" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.0233665, 0.040861, 0.0915442, 1)
+color = Color(0.0116055, 0.0203073, 0.0545293, 1)
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_1q7iv")]
 
