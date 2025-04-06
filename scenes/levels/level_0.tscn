@@ -1,19 +1,21 @@
-[gd_scene load_steps=27 format=4 uid="uid://bu5s50qgjdjag"]
+[gd_scene load_steps=31 format=4 uid="uid://bu5s50qgjdjag"]
 
 [ext_resource type="PackedScene" uid="uid://ciru2i22sdqm0" path="res://scenes/world_environment/world_environment.tscn" id="1_1q7iv"]
 [ext_resource type="Texture2D" uid="uid://bjjwwelfviht5" path="res://art/spritesheets_env/spritesheet_water_walls.png" id="1_jauas"]
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="2_bw3rj"]
 [ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="3_65guy"]
 [ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="3_p6rmu"]
-[ext_resource type="Script" uid="uid://beudspcqn6na" path="res://scenes/stations/light_station.gd" id="4_p6rmu"]
+[ext_resource type="Script" path="res://scenes/stations/light_station.gd" id="4_p6rmu"]
 [ext_resource type="Script" uid="uid://co01quiavx3pe" path="res://scenes/turrets/light.gd" id="5_34hum"]
 [ext_resource type="Texture2D" uid="uid://bihy8tmv4t5r5" path="res://art/spritesheet_vechicles/light.png" id="6_vhkxn"]
 [ext_resource type="Script" uid="uid://bnmb4aswl41qd" path="res://scenes/stations/gun_station.gd" id="7_1q7iv"]
-[ext_resource type="Script" path="res://scenes/stations/pump_station.gd" id="7_gj3kh"]
+[ext_resource type="Script" uid="uid://bdphab1745cjv" path="res://scenes/stations/pump_station.gd" id="7_gj3kh"]
 [ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://scenes/turrets/gun.gd" id="8_gj3kh"]
 [ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://scenes/turrets/bullet.tscn" id="9_myogd"]
-[ext_resource type="Script" path="res://scenes/stations/horizontal_station.gd" id="11_vhkxn"]
+[ext_resource type="Texture2D" uid="uid://b4p2ailc8qbn0" path="res://art/spritesheet_vechicles/spritesheet_tank.png" id="10_s4l03"]
+[ext_resource type="Script" uid="uid://00vlrniyevw2" path="res://scenes/stations/horizontal_station.gd" id="11_vhkxn"]
 [ext_resource type="Script" uid="uid://dajmbm00s3t75" path="res://scenes/stations/vertical_station.gd" id="12_1q7iv"]
+[ext_resource type="Texture2D" uid="uid://cje4ef3ev2dfw" path="res://art/spritesheet_vechicles/spritesheet_gun.png" id="13_myogd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wuvv4"]
 texture = ExtResource("1_jauas")
@@ -227,6 +229,14 @@ gradient = SubResource("Gradient_1rmrp")
 width = 8
 height = 16
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qejo"]
+atlas = ExtResource("10_s4l03")
+region = Rect2(37.3849, 53.474, 21.3432, 20.0243)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypncs"]
+atlas = ExtResource("13_myogd")
+region = Rect2(0, 0, 32.3494, 32)
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ypncs"]
 size = Vector2(4, 16)
 
@@ -237,8 +247,9 @@ gradient = SubResource("Gradient_c4s7v")
 width = 8
 height = 16
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_erlbe"]
-size = Vector2(4, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4l03"]
+atlas = ExtResource("13_myogd")
+region = Rect2(30.681, 0, 33.319, 32)
 
 [sub_resource type="Gradient" id="Gradient_b65lc"]
 
@@ -330,15 +341,21 @@ script = ExtResource("5_34hum")
 [node name="visual" type="Node2D" parent="Submarine/Stations/light_left"]
 position = Vector2(3.0598e-07, 7)
 
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_left/visual"]
-texture = SubResource("PlaceholderTexture2D_ypncs")
-
 [node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_left/visual"]
 position = Vector2(0.00039132, 99)
 color = Color(1, 0.729412, 0.380392, 1)
 energy = 5.0
 texture = ExtResource("6_vhkxn")
 texture_scale = 0.5
+
+[node name="Sprite2D2" type="Sprite2D" parent="Submarine/Stations/light_left/visual"]
+position = Vector2(1.00001, -2)
+rotation = 1.57155
+texture = SubResource("AtlasTexture_0qejo")
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/light_left/visual"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
 
 [node name="light_lower_left" type="Node2D" parent="Submarine/Stations"]
 position = Vector2(-90, 48)
@@ -347,9 +364,6 @@ script = ExtResource("5_34hum")
 [node name="visual" type="Node2D" parent="Submarine/Stations/light_lower_left"]
 position = Vector2(3.0598e-07, 7)
 
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_lower_left/visual"]
-texture = SubResource("PlaceholderTexture2D_ypncs")
-
 [node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_lower_left/visual"]
 position = Vector2(0.00039132, 99)
 color = Color(1, 0.729412, 0.380392, 1)
@@ -357,16 +371,21 @@ energy = 5.0
 texture = ExtResource("6_vhkxn")
 texture_scale = 0.5
 
+[node name="Sprite2D2" type="Sprite2D" parent="Submarine/Stations/light_lower_left/visual"]
+position = Vector2(1.00001, -2)
+rotation = 1.57155
+texture = SubResource("AtlasTexture_0qejo")
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/light_lower_left/visual"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
+
 [node name="light_lower_middle" type="Node2D" parent="Submarine/Stations"]
-visible = false
 position = Vector2(-4, 48)
 script = ExtResource("5_34hum")
 
 [node name="visual" type="Node2D" parent="Submarine/Stations/light_lower_middle"]
 position = Vector2(3.0598e-07, 7)
-
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_lower_middle/visual"]
-texture = SubResource("PlaceholderTexture2D_ypncs")
 
 [node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_lower_middle/visual"]
 position = Vector2(0.00039132, 99)
@@ -375,6 +394,15 @@ energy = 5.0
 texture = ExtResource("6_vhkxn")
 texture_scale = 0.5
 
+[node name="Sprite2D2" type="Sprite2D" parent="Submarine/Stations/light_lower_middle/visual"]
+position = Vector2(1.00001, -2)
+rotation = 1.57155
+texture = SubResource("AtlasTexture_0qejo")
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/light_lower_middle/visual"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
+
 [node name="light_lower_right" type="Node2D" parent="Submarine/Stations"]
 position = Vector2(80, 48)
 script = ExtResource("5_34hum")
@@ -382,15 +410,21 @@ script = ExtResource("5_34hum")
 [node name="visual" type="Node2D" parent="Submarine/Stations/light_lower_right"]
 position = Vector2(3.0598e-07, 7)
 
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_lower_right/visual"]
-texture = SubResource("PlaceholderTexture2D_ypncs")
-
 [node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_lower_right/visual"]
 position = Vector2(0.00039132, 99)
 color = Color(1, 0.729412, 0.380392, 1)
 energy = 5.0
 texture = ExtResource("6_vhkxn")
 texture_scale = 0.5
+
+[node name="Sprite2D2" type="Sprite2D" parent="Submarine/Stations/light_lower_right/visual"]
+position = Vector2(1.00001, -2)
+rotation = 1.57155
+texture = SubResource("AtlasTexture_0qejo")
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/light_lower_right/visual"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
 
 [node name="light_right" type="Node2D" parent="Submarine/Stations"]
 position = Vector2(119, 0)
@@ -401,7 +435,9 @@ script = ExtResource("5_34hum")
 position = Vector2(3.0598e-07, 7)
 
 [node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_right/visual"]
-texture = SubResource("PlaceholderTexture2D_ypncs")
+position = Vector2(1.00001, -2)
+rotation = 1.57155
+texture = SubResource("AtlasTexture_0qejo")
 
 [node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_right/visual"]
 position = Vector2(0.00039132, 99)
@@ -409,6 +445,10 @@ color = Color(1, 0.729412, 0.380392, 1)
 energy = 5.0
 texture = ExtResource("6_vhkxn")
 texture_scale = 0.5
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/light_right/visual"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
 
 [node name="light_upper_left" type="Node2D" parent="Submarine/Stations"]
 position = Vector2(-90, -49)
@@ -418,15 +458,21 @@ script = ExtResource("5_34hum")
 [node name="visual" type="Node2D" parent="Submarine/Stations/light_upper_left"]
 position = Vector2(3.0598e-07, 7)
 
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_upper_left/visual"]
-texture = SubResource("PlaceholderTexture2D_ypncs")
-
 [node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_upper_left/visual"]
 position = Vector2(0.00039132, 99)
 color = Color(1, 0.729412, 0.380392, 1)
 energy = 5.0
 texture = ExtResource("6_vhkxn")
 texture_scale = 0.5
+
+[node name="Sprite2D2" type="Sprite2D" parent="Submarine/Stations/light_upper_left/visual"]
+position = Vector2(1.00001, -2)
+rotation = 1.57155
+texture = SubResource("AtlasTexture_0qejo")
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/light_upper_left/visual"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
 
 [node name="light_upper_middle" type="Node2D" parent="Submarine/Stations"]
 visible = false
@@ -455,15 +501,21 @@ script = ExtResource("5_34hum")
 [node name="visual" type="Node2D" parent="Submarine/Stations/light_upper_right"]
 position = Vector2(3.0598e-07, 7)
 
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/light_upper_right/visual"]
-texture = SubResource("PlaceholderTexture2D_ypncs")
-
 [node name="PointLight2D" type="PointLight2D" parent="Submarine/Stations/light_upper_right/visual"]
 position = Vector2(0.00039132, 99)
 color = Color(1, 0.729412, 0.380392, 1)
 energy = 5.0
 texture = ExtResource("6_vhkxn")
 texture_scale = 0.5
+
+[node name="Sprite2D2" type="Sprite2D" parent="Submarine/Stations/light_upper_right/visual"]
+position = Vector2(1.00001, -2)
+rotation = 1.57155
+texture = SubResource("AtlasTexture_0qejo")
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/light_upper_right/visual"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
 
 [node name="gun_station_lower" type="Node2D" parent="Submarine/Stations" node_paths=PackedStringArray("_guns")]
 position = Vector2(20, 38)
@@ -490,15 +542,20 @@ position = Vector2(-71, 48)
 script = ExtResource("8_gj3kh")
 bullet_prefab = ExtResource("9_myogd")
 
-[node name="visual" type="Node2D" parent="Submarine/Stations/gun_lower_left"]
-position = Vector2(0, 8)
-
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/gun_lower_left/visual"]
-texture = SubResource("PlaceholderTexture2D_erlbe")
-
 [node name="exit" type="Node2D" parent="Submarine/Stations/gun_lower_left"]
 position = Vector2(0, 16)
 rotation = -0.82355
+
+[node name="visual2" type="Node2D" parent="Submarine/Stations/gun_lower_left"]
+position = Vector2(0, 8)
+
+[node name="barrel" type="Sprite2D" parent="Submarine/Stations/gun_lower_left/visual2"]
+rotation = 1.5708
+texture = SubResource("AtlasTexture_s4l03")
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/gun_lower_left/visual2"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
 
 [node name="gun_left_lower" type="Node2D" parent="Submarine/Stations"]
 position = Vector2(-113, 29)
@@ -506,30 +563,40 @@ rotation = 0.785398
 script = ExtResource("8_gj3kh")
 bullet_prefab = ExtResource("9_myogd")
 
-[node name="visual" type="Node2D" parent="Submarine/Stations/gun_left_lower"]
-position = Vector2(0, 8)
-
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/gun_left_lower/visual"]
-texture = SubResource("PlaceholderTexture2D_erlbe")
-
 [node name="exit" type="Node2D" parent="Submarine/Stations/gun_left_lower"]
 position = Vector2(0, 16)
 rotation = -0.82355
+
+[node name="visual2" type="Node2D" parent="Submarine/Stations/gun_left_lower"]
+position = Vector2(0, 8)
+
+[node name="barrel" type="Sprite2D" parent="Submarine/Stations/gun_left_lower/visual2"]
+rotation = 1.5708
+texture = SubResource("AtlasTexture_s4l03")
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/gun_left_lower/visual2"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
 
 [node name="gun_lower_right" type="Node2D" parent="Submarine/Stations"]
 position = Vector2(63, 48)
 script = ExtResource("8_gj3kh")
 bullet_prefab = ExtResource("9_myogd")
 
-[node name="visual" type="Node2D" parent="Submarine/Stations/gun_lower_right"]
-position = Vector2(0, 8)
-
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/gun_lower_right/visual"]
-texture = SubResource("PlaceholderTexture2D_erlbe")
-
 [node name="exit" type="Node2D" parent="Submarine/Stations/gun_lower_right"]
 position = Vector2(0, 16)
 rotation = -0.82355
+
+[node name="visual2" type="Node2D" parent="Submarine/Stations/gun_lower_right"]
+position = Vector2(0, 8)
+
+[node name="barrel" type="Sprite2D" parent="Submarine/Stations/gun_lower_right/visual2"]
+rotation = 1.5708
+texture = SubResource("AtlasTexture_s4l03")
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/gun_lower_right/visual2"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
 
 [node name="gun_upper_left" type="Node2D" parent="Submarine/Stations"]
 position = Vector2(-71, -49)
@@ -537,15 +604,20 @@ rotation = 3.14159
 script = ExtResource("8_gj3kh")
 bullet_prefab = ExtResource("9_myogd")
 
-[node name="visual" type="Node2D" parent="Submarine/Stations/gun_upper_left"]
-position = Vector2(0, 8)
-
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/gun_upper_left/visual"]
-texture = SubResource("PlaceholderTexture2D_erlbe")
-
 [node name="exit" type="Node2D" parent="Submarine/Stations/gun_upper_left"]
 position = Vector2(0, 16)
 rotation = -0.82355
+
+[node name="visual2" type="Node2D" parent="Submarine/Stations/gun_upper_left"]
+position = Vector2(0, 8)
+
+[node name="barrel" type="Sprite2D" parent="Submarine/Stations/gun_upper_left/visual2"]
+rotation = 1.5708
+texture = SubResource("AtlasTexture_s4l03")
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/gun_upper_left/visual2"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
 
 [node name="gun_right_upper" type="Node2D" parent="Submarine/Stations"]
 position = Vector2(106, -37)
@@ -553,15 +625,20 @@ rotation = -2.35619
 script = ExtResource("8_gj3kh")
 bullet_prefab = ExtResource("9_myogd")
 
-[node name="visual" type="Node2D" parent="Submarine/Stations/gun_right_upper"]
-position = Vector2(0, 8)
-
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/gun_right_upper/visual"]
-texture = SubResource("PlaceholderTexture2D_erlbe")
-
 [node name="exit" type="Node2D" parent="Submarine/Stations/gun_right_upper"]
 position = Vector2(0, 16)
 rotation = -0.82355
+
+[node name="visual2" type="Node2D" parent="Submarine/Stations/gun_right_upper"]
+position = Vector2(0, 8)
+
+[node name="barrel" type="Sprite2D" parent="Submarine/Stations/gun_right_upper/visual2"]
+rotation = 1.5708
+texture = SubResource("AtlasTexture_s4l03")
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/gun_right_upper/visual2"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
 
 [node name="gun_upper_right" type="Node2D" parent="Submarine/Stations"]
 position = Vector2(63, -49)
@@ -572,8 +649,13 @@ bullet_prefab = ExtResource("9_myogd")
 [node name="visual" type="Node2D" parent="Submarine/Stations/gun_upper_right"]
 position = Vector2(0, 8)
 
-[node name="Sprite2D" type="Sprite2D" parent="Submarine/Stations/gun_upper_right/visual"]
-texture = SubResource("PlaceholderTexture2D_erlbe")
+[node name="barrel" type="Sprite2D" parent="Submarine/Stations/gun_upper_right/visual"]
+rotation = 1.5708
+texture = SubResource("AtlasTexture_s4l03")
+
+[node name="base" type="Sprite2D" parent="Submarine/Stations/gun_upper_right/visual"]
+position = Vector2(2.02815e-05, -8)
+texture = SubResource("AtlasTexture_ypncs")
 
 [node name="exit" type="Node2D" parent="Submarine/Stations/gun_upper_right"]
 position = Vector2(0, 16)
