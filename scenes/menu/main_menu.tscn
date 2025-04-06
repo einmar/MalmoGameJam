@@ -1,10 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnyhulya1c3wi"]
+[gd_scene load_steps=14 format=3 uid="uid://dnyhulya1c3wi"]
 
 [ext_resource type="Script" uid="uid://cvdcw0x7x1ivp" path="res://scenes/menu/main_menu.gd" id="1_kiqgm"]
 [ext_resource type="Texture2D" uid="uid://6qrmyq854g2n" path="res://art/menu/controller.png" id="1_nl8w3"]
 [ext_resource type="Texture2D" uid="uid://dl1m6fanooxmf" path="res://art/spritesheet_vechicles/submarine_background.png" id="2_247la"]
 [ext_resource type="PackedScene" uid="uid://bu5s50qgjdjag" path="res://scenes/levels/level_0.tscn" id="2_hj162"]
 [ext_resource type="Texture2D" uid="uid://c5rl3md7ylqan" path="res://art/spritesheet_vechicles/submarine_frame.png" id="3_kiqgm"]
+
+[sub_resource type="Gradient" id="Gradient_efdjn"]
+colors = PackedColorArray(0, 0, 0.458824, 0.447059, 0, 1, 1, 0.352941)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xn6kt"]
+gradient = SubResource("Gradient_efdjn")
+
+[sub_resource type="Gradient" id="Gradient_qooq6"]
+offsets = PackedFloat32Array(0.525, 0.69)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qgo02"]
+gradient = SubResource("Gradient_qooq6")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.495, 0.495)
+
+[sub_resource type="Curve" id="Curve_vovv2"]
+_data = [Vector2(0, 0), 0.0, 2.42315, 0, 0, Vector2(0.485955, 0.758389), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.80479, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_641nr"]
+curve = SubResource("Curve_vovv2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1k4da"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 100, 1)
+gravity = Vector3(30, 0, 0)
+scale_min = 0.3
+alpha_curve = SubResource("CurveTexture_641nr")
+turbulence_enabled = true
+turbulence_noise_scale = 2.0
+turbulence_noise_speed_random = 0.4
 
 [sub_resource type="LabelSettings" id="LabelSettings_hj162"]
 font_size = 64
@@ -18,6 +53,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kiqgm")
 level_scene = ExtResource("2_hj162")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -3.0
+offset_top = 447.0
+offset_right = 443.0
+offset_bottom = 1256.0
+rotation = -1.56211
+texture = SubResource("GradientTexture2D_xn6kt")
+expand_mode = 4
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="TextureRect"]
+position = Vector2(204.604, 414.239)
+rotation = -0.0086816
+amount = 20
+texture = SubResource("GradientTexture2D_qgo02")
+lifetime = 10.0
+preprocess = 10.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_1k4da")
 
 [node name="Controller" type="Control" parent="."]
 anchors_preset = 0
