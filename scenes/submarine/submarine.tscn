@@ -7712,20 +7712,20 @@ physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_77ovh")
 
-[sub_resource type="Gradient" id="Gradient_efdjn"]
+[sub_resource type="Gradient" id="Gradient_roe7p"]
 colors = PackedColorArray(0, 0, 0.458824, 0.447059, 0, 1, 1, 0.352941)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qooq6"]
-gradient = SubResource("Gradient_efdjn")
+gradient = SubResource("Gradient_roe7p")
 width = 120
 height = 270
 
-[sub_resource type="Gradient" id="Gradient_qooq6"]
+[sub_resource type="Gradient" id="Gradient_641nr"]
 offsets = PackedFloat32Array(0.525, 0.69)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_myfyj"]
-gradient = SubResource("Gradient_qooq6")
+gradient = SubResource("Gradient_641nr")
 width = 8
 height = 8
 fill = 1
@@ -7735,7 +7735,7 @@ fill_from = Vector2(0.495, 0.495)
 _data = [Vector2(0, 0), 0.0, 2.42315, 0, 0, Vector2(0.485955, 0.758389), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.80479, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_641nr"]
+[sub_resource type="CurveTexture" id="CurveTexture_8xtpu"]
 curve = SubResource("Curve_roe7p")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8xtpu"]
@@ -7744,7 +7744,7 @@ emission_shape = 3
 emission_box_extents = Vector3(1, 100, 1)
 gravity = Vector3(30, 0, 0)
 scale_min = 0.3
-alpha_curve = SubResource("CurveTexture_641nr")
+alpha_curve = SubResource("CurveTexture_8xtpu")
 turbulence_enabled = true
 turbulence_noise_scale = 2.0
 turbulence_noise_speed_random = 0.4
