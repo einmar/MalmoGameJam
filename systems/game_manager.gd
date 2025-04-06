@@ -22,6 +22,7 @@ func level_setup() -> void:
 	scene_root_node.add_child(enemy_spawn_timer)
 	enemy_spawn_timer.timeout.connect(spawn_enemy)
 	enemy_spawn_timer.start(current_depth_resource.enemy_spawn_cooldown)
+	#exit_map.connect("level_won",self,"level_won")
 
 
 ############ Enemy Logic ############
