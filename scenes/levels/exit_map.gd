@@ -16,4 +16,3 @@ func _on_button_pressed() -> void:
 	game_state_label.text = ""
 	game_state_label.hide()
 	canvas_modulate.show()
-	Engine.time_scale = 1
