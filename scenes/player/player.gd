@@ -5,6 +5,7 @@ class_name Player
 @export var player_index: int = 1
 @export var sprite_animated: AnimatedSprite2D
 
+
 const SPEED = 70.0
 const JUMP_VELOCITY = -240.0
 
@@ -12,6 +13,9 @@ var _active_station: BaseStation = null
 var in_water: bool = false
 var using_station: bool = false
 var interataction_stopped: bool = false
+
+func _ready() -> void:
+	sprite_animated.sprite_frames = load("res://scenes/player/player%s_sprite_frames.tres" % player_index)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

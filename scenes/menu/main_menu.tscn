@@ -63,13 +63,13 @@ offset_right = 809.0
 offset_bottom = 48.0
 text = "<-Fire/Action"
 
-[node name="Button" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 157.0
 offset_top = 141.0
 offset_right = 357.0
 offset_bottom = 172.0
-text = "START"
+text = "START (or player1 press X)"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -89,4 +89,4 @@ texture = ExtResource("2_247la")
 position = Vector2(414, 312)
 texture = ExtResource("3_kiqgm")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]

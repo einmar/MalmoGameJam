@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://byrob4f6c5aw" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bqpcsrt68abmp" path="res://art/spritesheets_characters/spritesheet_playablecharacter_1.png" id="2_dovo2"]
-[ext_resource type="SpriteFrames" uid="uid://b1ptagkke53ba" path="res://scenes/player/player_sprite_frames.tres" id="3_gmlin"]
+[ext_resource type="SpriteFrames" uid="uid://b1ptagkke53ba" path="res://scenes/player/player1_sprite_frames.tres" id="3_gmlin"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
 radius = 4.0

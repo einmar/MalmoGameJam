@@ -11,3 +11,7 @@ func _on_button_pressed() -> void:
 	),
 	CONNECT_ONE_SHOT
 	)
+
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("player1_use"):
+		_on_button_pressed()
