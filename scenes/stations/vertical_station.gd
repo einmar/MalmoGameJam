@@ -2,12 +2,12 @@ extends BaseStation
 
 @export var submarine: Submarine 
 func _ready() -> void:
-    pass
+	pass
 
 
 func control_station(delta) -> void:
-    var val = Input.get_axis(_player.input_key("up"), _player.input_key("down"))
+	var val = Input.get_axis(_player.input_key("up"), _player.input_key("down"))
 
-    submarine.set_dir(val, false)	
+	submarine.set_dir(val, false)	
 
-    super(delta)
+	super(delta)
