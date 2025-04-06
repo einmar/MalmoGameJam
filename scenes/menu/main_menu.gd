@@ -7,7 +7,7 @@ func _on_button_pressed() -> void:
 	tree.change_scene_to_packed(level_scene)
 	tree.root.child_entered_tree.connect(
 	(func (scene: Node2D) -> void:
-		GameManager.level_setup()
+		GameManager.call_deferred("level_setup")
 	),
 	CONNECT_ONE_SHOT
 	)
