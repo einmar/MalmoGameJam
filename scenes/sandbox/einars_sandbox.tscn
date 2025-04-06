@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b4j7t7hof3occ" path="res://icon.svg" id="1_q66r3"]
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="2_8p02w"]
 [ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="3_1hi0b"]
-[ext_resource type="Script" path="res://scenes/stations/horizontal_station.gd" id="4_rphvf"]
+[ext_resource type="Script" uid="uid://00vlrniyevw2" path="res://scenes/stations/horizontal_station.gd" id="4_rphvf"]
 [ext_resource type="Script" uid="uid://dajmbm00s3t75" path="res://scenes/stations/vertical_station.gd" id="5_2h7q4"]
 [ext_resource type="Script" uid="uid://bnmb4aswl41qd" path="res://scenes/stations/gun_station.gd" id="7_37tov"]
-[ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://scenes/gun/gun.gd" id="8_obllt"]
-[ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://scenes/gun/bullet.tscn" id="9_rtudd"]
+[ext_resource type="Script" uid="uid://cvuxu0dxo6474" path="res://scenes/turrets/gun.gd" id="8_obllt"]
+[ext_resource type="PackedScene" uid="uid://3l172c8a0vy" path="res://scenes/turrets/bullet.tscn" id="9_rtudd"]
 [ext_resource type="Script" uid="uid://bdphab1745cjv" path="res://scenes/stations/pump_station.gd" id="10_2h7q4"]
 
 [sub_resource type="Gradient" id="Gradient_b65lc"]
@@ -74,7 +74,7 @@ texture = SubResource("GradientTexture2D_yfuu1")
 [node name="gun_station" type="Node2D" parent="Submarine" node_paths=PackedStringArray("_guns")]
 position = Vector2(-41, 38)
 script = ExtResource("7_37tov")
-_guns = [NodePath("../gun")]
+_guns = [null]
 
 [node name="visual" type="Node2D" parent="Submarine/gun_station"]
 

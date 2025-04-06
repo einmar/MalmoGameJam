@@ -34,14 +34,14 @@ polygon = PackedVector2Array(-1, -4, -2, -7, -3, -7, -5.2, -5, -8.5, -5, -11.5, 
 blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkcty"]
-size = Vector2(27, 18)
+size = Vector2(26, 14)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oyl6e"]
-radius = 30.0
+radius = 25.02
 
 [node name="basic_enemy" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("1_hsin2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -62,7 +62,7 @@ scale = Vector2(0.04, 0.04)
 texture = ExtResource("2_mkcty")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -1)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_mkcty")
 
 [node name="AttackTimer" type="Timer" parent="."]
@@ -76,11 +76,10 @@ autostart = true
 [node name="Health" parent="." instance=ExtResource("3_oyl6e")]
 
 [node name="attack_range" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
+collision_layer = 4
+collision_mask = 10
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="attack_range"]
-visible = false
 shape = SubResource("CircleShape2D_oyl6e")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
