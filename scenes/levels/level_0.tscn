@@ -238,7 +238,7 @@ sources/0 = SubResource("TileSetAtlasSource_wuvv4")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4mw86"]
 atlas = ExtResource("16_ypncs")
-region = Rect2(14.4561, 196, 15.1617, 27.8991)
+region = Rect2(16, 196, 13.6178, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ubciw"]
 atlas = ExtResource("16_ypncs")
@@ -246,19 +246,19 @@ region = Rect2(79.3797, 196, 14.3635, 28.2727)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mswog"]
 atlas = ExtResource("16_ypncs")
-region = Rect2(64.7355, 95.9722, 32.8818, 32.9719)
+region = Rect2(68, 95.9722, 25, 32.0278)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpoxe"]
 atlas = ExtResource("16_ypncs")
-region = Rect2(4, 100, 24, 28)
+region = Rect2(4, 100, 25, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vni6s"]
 atlas = ExtResource("16_ypncs")
-region = Rect2(2.38007, 148, 31.4404, 31.9097)
+region = Rect2(10, 148, 18, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eh6x6"]
 atlas = ExtResource("16_ypncs")
-region = Rect2(66, 148, 32, 28)
+region = Rect2(74, 148, 18, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qejo"]
 atlas = ExtResource("10_s4l03")
@@ -273,11 +273,11 @@ size = Vector2(4, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3eiyy"]
 atlas = ExtResource("16_ypncs")
-region = Rect2(16, 246, 17, 26)
+region = Rect2(15, 246, 19, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0rc6f"]
 atlas = ExtResource("16_ypncs")
-region = Rect2(80, 246, 18, 26)
+region = Rect2(79, 246, 19, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x58fq"]
 atlas = ExtResource("16_ypncs")
@@ -304,6 +304,20 @@ atlas = ExtResource("16_ypncs")
 region = Rect2(74, 20, 16, 28)
 
 [node name="Level0" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 933.0
+offset_top = -765.0
+offset_right = 1112.0
+offset_bottom = -586.0
+scale = Vector2(0.6, 0.6)
+text = "1: STEER UP / DOWN
+2: STEER LEFT / RIGHT
+3: PUMP OUT WATER
+4: LIGHT EAST / NORTH
+5: LIGHT WEST / SOUTH
+6: GUN WEST / SOUTH
+7: GUN EAST / NORTH"
 
 [node name="level_initializer" parent="." instance=ExtResource("1_xpoxe")]
 
@@ -418,10 +432,11 @@ active_sprite = NodePath("visual/active")
 position = Vector2(0, -4)
 
 [node name="inactive" type="Sprite2D" parent="Submarine/Stations/light_station_left/visual"]
+position = Vector2(0, -1)
 texture = SubResource("AtlasTexture_4mw86")
 
 [node name="active" type="Sprite2D" parent="Submarine/Stations/light_station_left/visual"]
-visible = false
+position = Vector2(0, -1)
 texture = SubResource("AtlasTexture_ubciw")
 
 [node name="pump_station" type="Node2D" parent="Submarine/Stations" node_paths=PackedStringArray("inactive_sprite", "active_sprite")]
@@ -434,7 +449,7 @@ active_sprite = NodePath("visual/active")
 
 [node name="active" type="Sprite2D" parent="Submarine/Stations/pump_station/visual"]
 visible = false
-position = Vector2(0, -7)
+position = Vector2(-1, -7)
 texture = SubResource("AtlasTexture_mswog")
 
 [node name="inactive" type="Sprite2D" parent="Submarine/Stations/pump_station/visual"]
@@ -451,12 +466,12 @@ active_sprite = NodePath("visual/active")
 [node name="visual" type="Node2D" parent="Submarine/Stations/light_station_right"]
 
 [node name="inactive" type="Sprite2D" parent="Submarine/Stations/light_station_right/visual"]
-position = Vector2(0, -3)
+position = Vector2(2, -6)
 texture = SubResource("AtlasTexture_vni6s")
 
 [node name="active" type="Sprite2D" parent="Submarine/Stations/light_station_right/visual"]
 visible = false
-position = Vector2(0, -8)
+position = Vector2(2, -6)
 texture = SubResource("AtlasTexture_eh6x6")
 
 [node name="light_left" type="Node2D" parent="Submarine/Stations"]
@@ -658,7 +673,7 @@ position = Vector2(0, -4)
 texture = SubResource("AtlasTexture_3eiyy")
 
 [node name="active" type="Sprite2D" parent="Submarine/Stations/gun_station_lower/visual"]
-position = Vector2(1, 0)
+visible = false
 texture = SubResource("AtlasTexture_0rc6f")
 
 [node name="gun_station_upper" type="Node2D" parent="Submarine/Stations" node_paths=PackedStringArray("_guns", "inactive_sprite", "active_sprite")]
@@ -817,12 +832,13 @@ position = Vector2(1, 1)
 texture = SubResource("AtlasTexture_erlbe")
 
 [node name="inactive2" type="Sprite2D" parent="Submarine/Stations/horizontal_sub_controller2/visual"]
+visible = false
 position = Vector2(1, 1)
 texture = SubResource("AtlasTexture_erlbe")
 
 [node name="active" type="Sprite2D" parent="Submarine/Stations/horizontal_sub_controller2/visual"]
 visible = false
-position = Vector2(1, 0)
+position = Vector2(1, 1)
 texture = SubResource("AtlasTexture_p102h")
 
 [node name="vertical_sub_controller" type="Node2D" parent="Submarine/Stations" node_paths=PackedStringArray("submarine", "inactive_sprite", "active_sprite")]
