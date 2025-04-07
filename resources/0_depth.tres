@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_fmd0w")
-enemy_spawn_amount = 2
+enemy_spawn_amount = 0
 enemy_toughness = 1.0
 enemy_spawn_cooldown = 5.0
 enemy_scenes = Array[PackedScene]([ExtResource("1_rswla"), ExtResource("1_rswla")])
