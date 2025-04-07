@@ -57,16 +57,16 @@ level_scene = ExtResource("2_hj162")
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
 layout_mode = 0
-offset_left = -3.0
-offset_top = 447.0
-offset_right = 443.0
-offset_bottom = 1256.0
-rotation = -1.56211
+offset_left = -5.0
+offset_top = 651.0
+offset_right = 645.0
+offset_bottom = 1813.0
+rotation = -1.5708
 texture = SubResource("GradientTexture2D_xn6kt")
 expand_mode = 4
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="TextureRect"]
-position = Vector2(204.604, 414.239)
+position = Vector2(350, 612)
 rotation = -0.0086816
 amount = 20
 texture = SubResource("GradientTexture2D_qgo02")
@@ -141,11 +141,11 @@ label_settings = SubResource("LabelSettings_hj162")
 horizontal_alignment = 1
 
 [node name="SubmarineBackground" type="Sprite2D" parent="."]
-position = Vector2(414, 312)
+position = Vector2(611, 383)
 texture = ExtResource("2_247la")
 
 [node name="SubmarineFrame" type="Sprite2D" parent="."]
-position = Vector2(414, 312)
+position = Vector2(611, 383)
 texture = ExtResource("3_kiqgm")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
