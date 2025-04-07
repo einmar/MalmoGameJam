@@ -148,4 +148,22 @@ texture = ExtResource("2_247la")
 position = Vector2(414, 312)
 texture = ExtResource("3_kiqgm")
 
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 177.0
+offset_right = 314.0
+offset_bottom = 208.0
+selected = 0
+item_count = 4
+popup/item_0/text = "1 Player"
+popup/item_0/id = 0
+popup/item_1/text = "2 Players"
+popup/item_1/id = 1
+popup/item_2/text = "3 Players"
+popup/item_2/id = 2
+popup/item_3/text = "4 Players"
+popup/item_3/id = 3
+
 [connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]

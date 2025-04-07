@@ -15,3 +15,7 @@ func _on_button_pressed() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("player1_use"):
 		_on_button_pressed()
+
+
+func _on_option_button_item_selected(index: int) -> void:
+	GameManager.number_of_players = index + 1
