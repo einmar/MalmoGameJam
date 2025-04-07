@@ -68,6 +68,7 @@ texture = SubResource("GradientTexture2D_xn6kt")
 expand_mode = 4
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="TextureRect"]
+z_index = 2
 z_as_relative = false
 position = Vector2(385.25, 592.25)
 rotation = -0.0086816
