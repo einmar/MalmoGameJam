@@ -8,9 +8,17 @@ var exit : Node2D
 var last_shot : float = 0.0
 var rotation_normalization: float = 0.0
 
+var _audio: AudioStreamPlayer
+var sound = preload("res://sound/shot.wav")
+
 func _ready() -> void:
 	exit = find_child("exit")
 	rotation_normalization = rotation_degrees
+
+	_audio = AudioStreamPlayer.new()
+	_audio.volume_linear = 0.1
+	add_child(_audio)
+	_audio.stream = sound
 
 func _process(delta: float) -> void:
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,3 +41,4 @@ func shoot() -> void:
 		bullet.transform.origin = exit.global_position
 		bullet.rotation = rotation
 		get_tree().current_scene.add_child(bullet)
+		_audio.play()
