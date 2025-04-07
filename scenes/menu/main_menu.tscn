@@ -52,11 +52,12 @@ script = ExtResource("1_kiqgm")
 level_scene = ExtResource("2_hj162")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(321, 328)
-scale = Vector2(2, 2)
+position = Vector2(522, 494)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("3_hj162")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 z_index = -1
 layout_mode = 0
 offset_left = -5.0
@@ -87,48 +88,49 @@ offset_bottom = 26.0
 [node name="TextureRect" type="TextureRect" parent="Controller"]
 layout_mode = 0
 offset_left = 529.0
-offset_top = -2.0
+offset_top = 105.0
 offset_right = 747.0
-offset_bottom = 216.0
+offset_bottom = 323.0
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_nl8w3")
 
 [node name="MoveLabel" type="Label" parent="Controller"]
 layout_mode = 0
-offset_left = 504.0
-offset_top = 51.0
-offset_right = 565.0
-offset_bottom = 74.0
+offset_left = 496.0
+offset_top = 145.0
+offset_right = 557.0
+offset_bottom = 168.0
 text = "Move ->"
 
 [node name="JumpLabel" type="Label" parent="Controller"]
 layout_mode = 0
-offset_left = 699.0
-offset_top = 71.0
-offset_right = 763.0
-offset_bottom = 97.0
+offset_left = 663.0
+offset_top = 161.0
+offset_right = 727.0
+offset_bottom = 187.0
 text = "<-Jump"
 
 [node name="UseLabel" type="Label" parent="Controller"]
 layout_mode = 0
-offset_left = 626.0
-offset_top = 57.0
-offset_right = 675.0
-offset_bottom = 83.0
+offset_left = 598.0
+offset_top = 150.0
+offset_right = 647.0
+offset_bottom = 176.0
 text = "Use->"
 
 [node name="FireActionLabel" type="Label" parent="Controller"]
 layout_mode = 0
-offset_left = 710.0
-offset_top = 22.0
-offset_right = 809.0
-offset_bottom = 48.0
+offset_left = 675.0
+offset_top = 122.0
+offset_right = 774.0
+offset_bottom = 148.0
 text = "<-Fire/Action"
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 42.0
+offset_left = 34.0
 offset_top = 99.0
-offset_right = 251.0
+offset_right = 243.0
 offset_bottom = 130.0
 text = "START (or player1 press X)"
 
@@ -139,9 +141,9 @@ texture = ExtResource("4_kiqgm")
 
 [node name="OptionButton" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 42.0
+offset_left = 34.0
 offset_top = 135.0
-offset_right = 144.0
+offset_right = 136.0
 offset_bottom = 166.0
 selected = 0
 item_count = 4
@@ -156,9 +158,9 @@ popup/item_3/id = 3
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 46.0
+offset_left = 38.0
 offset_top = 266.0
-offset_right = 327.0
+offset_right = 319.0
 offset_bottom = 419.0
 theme_override_font_sizes/font_size = 13
 text = "1: STEER UP / DOWN
