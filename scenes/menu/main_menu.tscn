@@ -56,28 +56,6 @@ position = Vector2(522, 494)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("3_hj162")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-z_index = -1
-layout_mode = 0
-offset_left = -5.0
-offset_top = 651.0
-offset_right = 645.0
-offset_bottom = 1813.0
-rotation = -1.5708
-texture = SubResource("GradientTexture2D_xn6kt")
-expand_mode = 4
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="TextureRect"]
-position = Vector2(385.25, 592.25)
-rotation = -0.0086816
-amount = 20
-texture = SubResource("GradientTexture2D_qgo02")
-lifetime = 10.0
-preprocess = 10.0
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_1k4da")
-
 [node name="Controller" type="Control" parent="."]
 anchors_preset = 0
 offset_left = -25.0
@@ -170,6 +148,28 @@ text = "1: STEER UP / DOWN
 5: LIGHT WEST / SOUTH
 6: GUN WEST / SOUTH
 7: GUN EAST / NORTH"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -5.0
+offset_top = 651.0
+offset_right = 645.0
+offset_bottom = 1813.0
+rotation = -1.5708
+texture = SubResource("GradientTexture2D_xn6kt")
+expand_mode = 4
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="TextureRect"]
+z_as_relative = false
+position = Vector2(385.25, 592.25)
+rotation = -0.0086816
+amount = 20
+texture = SubResource("GradientTexture2D_qgo02")
+lifetime = 10.0
+preprocess = 10.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_1k4da")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
 [connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
