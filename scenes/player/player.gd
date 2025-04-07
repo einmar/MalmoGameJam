@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+@onready var light: PointLight2D = $PointLight2D
+
 @export var player_index: int = 1
 @export var sprite_animated: AnimatedSprite2D
 
@@ -16,6 +18,15 @@ var interataction_stopped: bool = false
 
 func _ready() -> void:
 	sprite_animated.sprite_frames = load("res://scenes/player/player%s_sprite_frames.tres" % player_index)
+	match player_index:
+		1:
+			light.color = Color.YELLOW
+		2:
+			light.color = Color.GREEN
+		3:
+			light.color = Color.RED
+		4:
+			light.color = Color.PINK
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
