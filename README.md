@@ -1,4 +1,4 @@
-The Blaring Voyage
+# The Blaring Voyage
 
 Dive into the depths of the ocean in “The Blaring Voyage,” where teamwork and courage are your only allies against the relentless forces of the deep. As a member of a brave crew aboard a state-of-the-art submarine, you will embark on a perilous journey through uncharted waters, where danger lurks around every corner.
 
