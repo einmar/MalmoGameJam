@@ -1,6 +1,7 @@
-[gd_scene load_steps=48 format=4 uid="uid://bu5s50qgjdjag"]
+[gd_scene load_steps=49 format=4 uid="uid://bu5s50qgjdjag"]
 
 [ext_resource type="PackedScene" uid="uid://ciru2i22sdqm0" path="res://scenes/world_environment/world_environment.tscn" id="1_1q7iv"]
+[ext_resource type="Texture2D" uid="uid://cye2t1lrge7s6" path="res://art/spritesheets_characters/2d_lights_and_shadows_neutral_point_light.webp" id="1_eh6x6"]
 [ext_resource type="Texture2D" uid="uid://bjjwwelfviht5" path="res://art/spritesheets_env/spritesheet_water_walls.png" id="1_jauas"]
 [ext_resource type="PackedScene" uid="uid://cn52pfw3lvub4" path="res://scenes/levels/level_initializer.tscn" id="1_xpoxe"]
 [ext_resource type="PackedScene" uid="uid://b6ivlsk6h6sj5" path="res://scenes/levels/depth_changer.tscn" id="2_4mw86"]
@@ -319,6 +320,10 @@ text = "1: STEER UP / DOWN
 5: LIGHT WEST / SOUTH
 6: GUN WEST / SOUTH
 7: GUN EAST / NORTH"
+
+[node name="PointLight2D" type="PointLight2D" parent="Label"]
+position = Vector2(90, 90)
+texture = ExtResource("1_eh6x6")
 
 [node name="level_initializer" parent="." instance=ExtResource("1_xpoxe")]
 
