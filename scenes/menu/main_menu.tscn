@@ -165,5 +165,20 @@ popup/item_2/id = 2
 popup/item_3/text = "4 Players"
 popup/item_3/id = 3
 
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 329.0
+offset_right = 504.0
+offset_bottom = 444.0
+theme_override_font_sizes/font_size = 9
+text = "1: STEER UP / DOWN
+2: STEER LEFT / RIGHT
+3: PUMP OUT WATER
+4: LIGHT EAST / NORTH
+5: LIGHT WEST / SOUTH
+6: GUN WEST / SOUTH
+7: GUN EAST / NORTH"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
 [connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]

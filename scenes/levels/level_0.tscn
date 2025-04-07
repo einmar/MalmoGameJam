@@ -1,10 +1,11 @@
-[gd_scene load_steps=47 format=4 uid="uid://bu5s50qgjdjag"]
+[gd_scene load_steps=48 format=4 uid="uid://bu5s50qgjdjag"]
 
 [ext_resource type="PackedScene" uid="uid://ciru2i22sdqm0" path="res://scenes/world_environment/world_environment.tscn" id="1_1q7iv"]
 [ext_resource type="Texture2D" uid="uid://bjjwwelfviht5" path="res://art/spritesheets_env/spritesheet_water_walls.png" id="1_jauas"]
 [ext_resource type="PackedScene" uid="uid://cn52pfw3lvub4" path="res://scenes/levels/level_initializer.tscn" id="1_xpoxe"]
 [ext_resource type="PackedScene" uid="uid://b6ivlsk6h6sj5" path="res://scenes/levels/depth_changer.tscn" id="2_4mw86"]
 [ext_resource type="PackedScene" uid="uid://dvlqtssi4uvto" path="res://scenes/submarine/submarine.tscn" id="2_bw3rj"]
+[ext_resource type="PackedScene" uid="uid://dxltfbht2md2m" path="res://scenes/menu/pause_menu.tscn" id="2_mswog"]
 [ext_resource type="Script" uid="uid://clbactge4qegt" path="res://scenes/levels/exit_map.gd" id="2_s4l03"]
 [ext_resource type="PackedScene" uid="uid://cjdqtege0ai7n" path="res://scenes/player/player.tscn" id="3_65guy"]
 [ext_resource type="PackedScene" uid="uid://dlg4q8jwn3hii" path="res://scenes/camera/camera.tscn" id="3_p6rmu"]
@@ -330,7 +331,6 @@ position = Vector2(58, 0)
 shape = SubResource("RectangleShape2D_ubciw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0116055, 0.0203073, 0.0545293, 1)
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_1q7iv")]
@@ -372,6 +372,9 @@ tile_set = SubResource("TileSet_svowb")
 
 [node name="Submarine" parent="." instance=ExtResource("2_bw3rj")]
 position = Vector2(1317, -549)
+
+[node name="PauseMenu" parent="Submarine" instance=ExtResource("2_mswog")]
+visible = false
 
 [node name="game_state_label" type="Label" parent="Submarine"]
 visible = false
