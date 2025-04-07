@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjdqtege0ai7n"]
+[gd_scene load_steps=7 format=3 uid="uid://cjdqtege0ai7n"]
 
 [ext_resource type="Script" uid="uid://byrob4f6c5aw" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bqpcsrt68abmp" path="res://art/spritesheets_characters/spritesheet_playablecharacter_1.png" id="2_dovo2"]
 [ext_resource type="SpriteFrames" uid="uid://dn1v2n256n2qe" path="res://scenes/player/player1_sprite_frames.tres" id="3_gmlin"]
+[ext_resource type="Texture2D" uid="uid://cye2t1lrge7s6" path="res://art/spritesheets_characters/2d_lights_and_shadows_neutral_point_light.webp" id="4_lvxji"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
 radius = 3.0
@@ -34,5 +35,11 @@ sprite_frames = ExtResource("3_gmlin")
 animation = &"interaction_back_stop"
 autoplay = "idle"
 offset = Vector2(0, -16)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-0.7, -4.3)
+scale = Vector2(0.0257812, 0.0257812)
+energy = 4.0
+texture = ExtResource("4_lvxji")
 
 [connection signal="animation_finished" from="PlayerAnimatedSprite2D" to="." method="_on_player_animated_sprite_2d_animation_finished"]
