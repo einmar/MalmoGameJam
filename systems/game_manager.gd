@@ -8,6 +8,7 @@ var game_state_label: Label
 var players: Array[Player] = []
 var canvas_modulate: CanvasModulate
 var current_depth_resource: DepthResource
+var number_of_players: int = 1
 
 func reset_all_variables() -> void:
 	references = {}

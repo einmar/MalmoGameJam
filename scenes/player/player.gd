@@ -17,6 +17,8 @@ var using_station: bool = false
 var interataction_stopped: bool = false
 
 func _ready() -> void:
+	if player_index > GameManager.number_of_players:
+		queue_free()
 	sprite_animated.sprite_frames = load("res://scenes/player/player%s_sprite_frames.tres" % player_index)
 	match player_index:
 		1:
@@ -51,7 +53,14 @@ func _physics_process(delta: float) -> void:
 	if in_water:
 		velocity = velocity / 2.0
 	move_and_slide()
+	submarine_move_override()
 
+func submarine_move_override():
+	# override player 2 movement controls for singleplayer.
+	if GameManager.number_of_players == 1:
+		GameManager.submarine.set_dir(Input.get_axis("player2_left", "player2_right"),true)
+		GameManager.submarine.set_dir(Input.get_axis("player2_up", "player2_down"),false)
+		
 func animate() -> void:
 	if velocity.x < 0:
 		sprite_animated.flip_h = true

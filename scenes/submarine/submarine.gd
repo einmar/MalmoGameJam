@@ -49,9 +49,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	direction = Vector2.ZERO
 	
-	# för avlusning
-	if Input.is_action_just_pressed("ui_home"):
-		health.take_damage(10.0)
 	
 func set_dir(val, is_x):
 	if is_x:
