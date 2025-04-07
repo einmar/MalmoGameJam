@@ -322,7 +322,7 @@ text = "1: STEER UP / DOWN
 7: GUN EAST / NORTH"
 
 [node name="PointLight2D" type="PointLight2D" parent="Label"]
-position = Vector2(90, 90)
+position = Vector2(83, 90)
 texture = ExtResource("1_eh6x6")
 
 [node name="level_initializer" parent="." instance=ExtResource("1_xpoxe")]
